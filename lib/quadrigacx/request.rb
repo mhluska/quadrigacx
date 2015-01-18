@@ -1,5 +1,4 @@
 require 'rest-client'
-require 'active_support/core_ext'
 require 'json'
 require 'hashie'
 require 'openssl'

@@ -11,7 +11,7 @@ describe QuadrigaCX::Client do
       VCR.use_cassette('order_book') do
         order_book = client.order_book
 
-        expect(order_book.timestamp).to be_present
+        expect(order_book.timestamp).not_to be_nil
         expect(order_book.bids.first.length).to equal 2
         expect(order_book.asks.first.length).to equal 2
       end
