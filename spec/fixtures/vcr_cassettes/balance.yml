@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.quadrigacx.com/v2/balance
+    body:
+      encoding: UTF-8
+      string: '{"key":"kOnVDjfPPh","nonce":"1421609504253","signature":"8f8c068624b4980659f0a2d0eabbe756d38fa204a0a19f8dd4deedb1046aebc8"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '123'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 18 Jan 2015 19:31:41 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d7e229ae5b37d969e7ef6ecc80f0c71041421609501; expires=Mon, 18-Jan-16
+        19:31:41 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=DDUPO1I2VmwHKF0iBGFWZ1M3VmkMLl17A2ZRJg8tBDoBMlFuVApcOltnVnpUPlckDmAPMABtWmBRJwM%2BWDtSYgUzBTZWPwVkAWUAZQJgCT4MYQ85UjRWbgdnXWMEaVZnUz9WawxoXTADMVFjDz8EZQE%2BUWJUYVw3W2BWelQ%2BVyQOYA8yAG9aYFEnA29YKFJYBWQFZVZjBSABOAAiAnAJJAxvD3JSOVZnB2BdawR5VmdTMFZrDCJdPgMwUXsPbwRnAXNRMlRkXGVbIVZjVHZXbQ5rDzMAZVp4UXADdVg9UnUFWgVgVmAFNwEzACUCIQk9DCcPO1I3VmwHcV0DBC5WNFN%2BVnEMN117AzlRZA9tBGkBf1FsVDRcIFt3VgdUZFc0Di4PagApWjNRcQN%2FWHpSPAVsBTtWNgVmAW8AYAI1CTYMbQ80UjNWZwdoXSIEYVZvUz1WcQx5XXsDZlEnDwEENwE8UXRUNFxxWzhWK1Q%2FV2cOYA8hAH1aYVF4;
+        expires=Sun, 18-Jan-2015 21:31:41 GMT; Max-Age=7200; path=/
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 1aad36da0aac052e-YYZ
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA2yPQQqEMAxF79K1lGir1bmMpDWCUGahowzI3H1ojWjVLP/j
+        P35WYT+uxQUHj9aTeAmQStdFCQAii3CkicaFusiAj5lFj293qznsEmeuoZHG
+        MDkJC1Vqme+Vw6ZMpWQdCvOUqsIEji/DOD1PiuEX55uBXwjo4T0mqYlBT1sQ
+        P/39AQAA//8DAHDQhBY/AQAA
+    http_version: 
+  recorded_at: Sun, 18 Jan 2015 19:31:45 GMT
+recorded_with: VCR 2.9.2

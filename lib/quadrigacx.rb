@@ -1,6 +1,7 @@
-require 'quadrigacx/version'
 require 'quadrigacx/request'
 require 'quadrigacx/client'
+require 'quadrigacx/version'
+require 'quadrigacx/error'
 
 module QuadrigaCX
   @@options = {}
@@ -16,6 +17,7 @@ module QuadrigaCX
     end
 
     @@options[:use_hmac]   = true
+    @@options[:client_id]  = options[:client_id]
     @@options[:api_key]    = options[:api_key]
     @@options[:api_secret] = options[:api_secret]
     @@options

@@ -4,6 +4,7 @@ require 'hashie'
 require 'openssl'
 require 'date'
 require 'uri'
+require 'digest'
 
 module QuadrigaCX
   module Request
@@ -21,26 +22,25 @@ module QuadrigaCX
     end
 
     def hmac_request(http_method, path, body={})
-      raise 'Client ID and secret required!' unless @api_key && @api_secret
+      raise 'API key, API secret and client ID required!' unless @api_key && @api_secret && @client_id
 
-      digest    = OpenSSL::Digest.new('sha256')
+      secret    = Digest::MD5.hexdigest(@api_secret)
       nonce     = DateTime.now.strftime('%Q')
-      params    = URI.encode_www_form(body)
-      data      = [nonce, @api_key, path, params].join
-      signature = OpenSSL::HMAC.hexdigest(digest, @api_secret, data)
+      data      = [nonce + @api_key + @client_id].join
+      digest    = OpenSSL::Digest.new('sha256')
+      signature = OpenSSL::HMAC.hexdigest(digest, secret, data)
       url       = "#{API_URL}#{path}"
 
-      headers = {
-        'Apiauth-Key' => @api_key,
-        'Apiauth-Nonce' => nonce,
-        'Apiauth-Signature' => signature,
-      }
+      body.merge!({
+        key: @api_key,
+        nonce: nonce,
+        signature: signature,
+      })
 
-      # TODO(maros): Get the `RestClient::Request.execute` API to work.
-      if http_method == :get
-        RestClient.get("#{url}?#{params}", headers)
+      if http_method == :post
+        RestClient.post(url, body.to_json, :content_type => :json, :accept => :json)
       else
-        RestClient.post(url, params, headers)
+        RestClient.send(http_method, url, body)
       end
     end
 

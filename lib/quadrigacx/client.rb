@@ -7,7 +7,7 @@ module QuadrigaCX
     include QuadrigaCX::Public
     include QuadrigaCX::Private
 
-    attr_reader :api_key, :api_secret
+    attr_reader :api_key, :api_secret, :client_id
 
     # Initialize a LocalBitcoins::Client instance
     #
@@ -20,6 +20,7 @@ module QuadrigaCX
       end
 
       @use_hmac   = true
+      @client_id  = options[:client_id]
       @api_key    = options[:api_key]
       @api_secret = options[:api_secret]
     end
