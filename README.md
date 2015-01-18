@@ -9,4 +9,6 @@ client = QuadrigaCX::Client.new(api_key: 'API_KEY', api_secret: 'API_SECRET', cl
 client.balance
 ```
 
+QuadrigaCX's rate limit: 60 requests / minute.
+
 Heavily inspired by [localbitcoins](https://github.com/pemulis/localbitcoins).
