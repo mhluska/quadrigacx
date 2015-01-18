@@ -1,1 +1,1 @@
-# quadrigacx
+# QuadrigaCX
