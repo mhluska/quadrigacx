@@ -13,7 +13,3 @@ client = QuadrigaCX::Client.new(
 
 puts client.balance
 ```
-
-QuadrigaCX's rate limit: 60 requests / minute.
-
-Heavily inspired by [localbitcoins](https://github.com/pemulis/localbitcoins).
