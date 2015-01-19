@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.quadrigacx.com/v2/bitcoin_withdrawal
+    body:
+      encoding: UTF-8
+      string: '{"amount":"0.01","address":"1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX","key":"kOnVDjfPPh","nonce":"1421689984304","signature":"c87d5b1122f81e09a7ccaa519dba4e1eb4496043d8c558e116219a88d84bf6d7"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '186'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 19 Jan 2015 17:53:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '4'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d080ab90a09d676df8d538374e58fbcfc1421689982; expires=Tue, 19-Jan-16
+        17:53:02 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=DTQGMgVhU2kOIQB%2FXzpWZ1o%2BAT5beQYgVDEMe1V3V2lfbFBvUA4IbgE9VnoBa1QnAG4LNAJvU2lTJQY3Wj9dPFUzBTEGNFQ2AW0DZVE2DTMNYgZrBW1TYQ5vADVfYlZkWmoBN1s4BmNUbQxtVWFXNF9iUDBQZAgwAW9WegFrVCcAbgs2Am1TaVMlBmpaKl1XVTQFZQYzVHEBOAMhUSMNIA1uBnsFblNiDmkANl8iVmdaOQE8W3UGZVRnDCZVNVc0Xy1QM1BgCDEBe1ZjASNUbgBlCzcCZ1NxU3IGcFo%2FXXpVCgVgBjBUZgEzAyZRcg05DSYGMgVgU2kOeABeX3VWNFp3ASZbYAYgVG4MOVU3VzpfIVBtUDAIdAEtVgcBMVQ3ACALbgIrUzpTcwZ6WnhdM1U8BTsGZlQ3AW8DY1FmDToNbAYxBWxTYQ5hAH9fOlZvWjQBJlsuBiBUMQx6VVtXZF9iUHVQMAglAWJWKwFqVGQAbgslAn9TaFN6;
+        expires=Mon, 19-Jan-2015 19:53:02 GMT; Max-Age=7200; path=/
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 1ab4e3b6223c052e-YYZ
+    body:
+      encoding: UTF-8
+      string: '"ok"'
+    http_version: 
+  recorded_at: Mon, 19 Jan 2015 17:53:05 GMT
+recorded_with: VCR 2.9.3

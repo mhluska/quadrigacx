@@ -30,5 +30,13 @@ module QuadrigaCX
     def cancel params={}
       request(:post, '/cancel_order', params)
     end
+
+    # Withdraw bitcoins
+    #
+    # amount  – The amount to withdraw
+    # address – The bitcoin address we will send the amount to
+    def withdraw params={}
+      request(:post, '/bitcoin_withdrawal', params)
+    end
   end
 end

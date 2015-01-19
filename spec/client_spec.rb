@@ -69,5 +69,14 @@ describe QuadrigaCX::Client do
         end
       end
     end
+
+    describe '#withdraw' do
+      it 'withdraws bitcoins' do
+        VCR.use_cassette('withdraw') do
+          response = client.withdraw(amount: '0.01', address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+          expect(response).to eq('"ok"')
+        end
+      end
+    end
   end
 end
