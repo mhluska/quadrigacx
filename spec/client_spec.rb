@@ -32,5 +32,42 @@ describe QuadrigaCX::Client do
         end
       end
     end
+
+    describe '#limit_buy' do
+      it 'throws an error when no price is provided' do
+        expect { client.limit_buy }.to raise_error(QuadrigaCX::ConfigurationError)
+      end
+
+      it 'places a limit buy order' do
+        VCR.use_cassette('limit_buy') do
+          response = client.limit_buy(price: '240', amount: '0.01') # 0.01 BTC
+
+          expect(response.datetime).not_to be_nil
+          expect(response.id).not_to be_nil
+        end
+      end
+    end
+
+    describe '#market_buy' do
+      it 'places a market buy order' do
+        VCR.use_cassette('market_buy') do
+          response = client.market_buy(amount: '5.00') # 5 CAD
+
+          expect(response.amount).not_to be_nil
+          expect(response.orders_matched.first.price).not_to be_nil
+        end
+      end
+    end
+
+    describe '#cancel_order' do
+      let(:order) { client.limit_buy(price: '240', amount: '0.01') }
+
+      it 'cancels an order' do
+        VCR.use_cassette('cancel_order') do
+          response = client.cancel(id: order.id)
+          expect(response).to eq('"true"')
+        end
+      end
+    end
   end
 end

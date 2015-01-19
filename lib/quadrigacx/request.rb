@@ -15,9 +15,17 @@ module QuadrigaCX
     def request(*args)
       resp = @use_hmac ? self.hmac_request(*args) : self.oauth_request(*args)
 
-      hash = Hashie::Mash.new(JSON.parse(resp.body))
+      begin
+        hash = Hashie::Mash.new(JSON.parse(resp.body))
+
+      # The `/cancel_order` route returns `"true"` instead of valid JSON.
+      rescue JSON::ParserError
+        return resp.body
+      end
+
       raise Error.new(hash.error) if hash.error
       raise Error.new(hash.errors.join(',')) if hash.errors
+
       hash
     end
 
@@ -37,11 +45,16 @@ module QuadrigaCX
         signature: signature,
       })
 
-      if http_method == :post
-        RestClient.post(url, body.to_json, :content_type => :json, :accept => :json)
-      else
-        RestClient.send(http_method, url, body)
-      end
+      RestClient::Request.execute(
+        url: url,
+        method: http_method,
+        payload: body.to_json,
+        verify_ssl: false,
+        headers: {
+          content_type: :json,
+          accept: :json,
+        }
+      )
     end
 
     # Perform an OAuth API request. The client must be initialized
