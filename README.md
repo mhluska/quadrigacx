@@ -11,7 +11,7 @@ client = QuadrigaCX::Client.new(
 	client_id:  'CLIENT_ID',
 )
 
-client.balance
+puts client.balance
 ```
 
 QuadrigaCX's rate limit: 60 requests / minute.
