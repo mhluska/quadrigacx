@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.quadrigacx.com/v2/sell
+    body:
+      encoding: UTF-8
+      string: '{"price":"240","amount":"0.01","key":"kOnVDjfPPh","nonce":"1421691283730","signature":"25d144ecbe94189688629ecd77b917d58ffdcdc4046172613dcb864b5471840d"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '153'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 19 Jan 2015 18:14:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=de027c5215a86a12b6e35021f295df4a31421691281; expires=Tue, 19-Jan-16
+        18:14:41 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=CzJTZ1E1UGpUewB%2FBWBTYgNnAT5cfldxWTwMew4sUG4AM1BvUA4LbVtnBipSOAd0BGoLNFA9UmhbLQVhD2xRNQI3BTZWMw8%2BDmVTYFdjXWoLYVNtUTNQNlQyADkFO1NrAzEBMlxoVzpZbQw%2BDmtQYwBtUDdQZQs8W2UGKlI4B3QEags2UD9SaFstBWkPf1FbAmMFZVZjDyoON1NxVyVdcAtoUy5ROlBhVDMANgV4U2IDYAE8XHJXNFlqDCYOblAzAHJQM1BgCzJbIQYzUnAHPQRhCzdQNVJwW3oFcw9qUXYCXQVgVmAPPQ48U3ZXdF1pCyBTZ1E0UGpUIgBeBS9TMQMuASZcZ1dxWWMMOQ5sUD0AflBtUDALd1t3BldSYgdkBCQLblB5UjtbewV5Dy1RPwJrBTtWNg9sDmBTM1dgXWsLYlNvUThQYVQ7AH8FYFNqA20BJlwpV3FZPAx6DgBQYwA9UHVQMAsmWzgGe1I5BzcEagslUC1SaVty;
+        expires=Mon, 19-Jan-2015 20:14:41 GMT; Max-Age=7200; path=/
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cf-Ray:
+      - 1ab5036b6473052e-YYZ
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAxyOQQqDMBQFr1LeOsr/okFzmWKMjdFag/6gUnr3orOdxcwX
+        7bykj8CAcmK6gYJdlgkGVrpn1zoouFZ6CXMPg4K4yogzbh7cGC5NyVAIDga6
+        prRJXcRh9FrsYU+ZHPnZpXX4LDodOkY6tviy+l2FcfCukH70q6tr3vs9QSGu
+        obsrJeX3yiatpO0ahIKc8ZKM3x8AAP//AwCepF4GugAAAA==
+    http_version: 
+  recorded_at: Mon, 19 Jan 2015 18:14:46 GMT
+recorded_with: VCR 2.9.3
