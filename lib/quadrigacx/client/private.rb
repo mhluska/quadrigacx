@@ -48,5 +48,12 @@ module QuadrigaCX
     def withdraw params={}
       request(:post, '/bitcoin_withdrawal', params)
     end
+
+    # Returns a JSON list of open orders
+    #
+    # book - optional, if not specified, will default to btc_cad
+    def open_orders params={}
+      request(:post, '/open_orders', params)
+    end
   end
 end

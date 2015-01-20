@@ -12,24 +12,21 @@ module QuadrigaCX
 
     protected
 
-    def request(*args)
+    def request *args
       resp = @use_hmac ? self.hmac_request(*args) : self.oauth_request(*args)
 
       begin
-        hash = Hashie::Mash.new(JSON.parse(resp.body))
+        json = JSON.parse(resp.body)
 
       # The `/cancel_order` route returns `"true"` instead of valid JSON.
       rescue JSON::ParserError
         return resp.body
       end
 
-      raise Error.new(hash.error) if hash.error
-      raise Error.new(hash.errors.join(',')) if hash.errors
-
-      hash
+      json.kind_of?(Array) ? json.map { |i| to_hashie(i) } : to_hashie(json)
     end
 
-    def hmac_request(http_method, path, body={})
+    def hmac_request http_method, path, body={}
       raise 'API key, API secret and client ID required!' unless @api_key && @api_secret && @client_id
 
       secret    = Digest::MD5.hexdigest(@api_secret)
@@ -64,7 +61,18 @@ module QuadrigaCX
     # body -   Parameters for requests - GET and POST
     #
     # TODO(maros): Implement this when QuadrigaCX supports it.
-    def oauth_request(http_method, path, body={})
+    def oauth_request http_method, path, body={}
+    end
+
+    private
+
+    def to_hashie json
+      hash = Hashie::Mash.new(json)
+
+      raise Error.new(hash.error) if hash.error
+      raise Error.new(hash.errors.join(',')) if hash.errors
+
+      hash
     end
   end
 end

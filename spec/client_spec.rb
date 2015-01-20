@@ -93,5 +93,17 @@ describe QuadrigaCX::Client do
         end
       end
     end
+
+    describe '#open_orders' do
+      it 'lists open orders' do
+        VCR.use_cassette('open_orders') do
+          response = client.open_orders
+
+          expect(response.first.datetime).not_to be_nil
+          expect(response.first.price).not_to be_nil
+          expect(response.first.type).not_to be_nil
+        end
+      end
+    end
   end
 end
