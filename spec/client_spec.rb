@@ -19,6 +19,17 @@ describe QuadrigaCX::Client do
         end
       end
     end
+
+    describe '#transactions' do
+      it 'returns a list of recent trades' do
+        VCR.use_cassette('transactions') do
+          transactions = client.transactions
+
+          expect(transactions.first.date).not_to be_nil
+          expect(transactions.first.price).not_to be_nil
+        end
+      end
+    end
   end
 
   describe 'private' do
