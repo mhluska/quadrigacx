@@ -91,7 +91,7 @@ describe QuadrigaCX::Client do
       it 'cancels an order' do
         VCR.use_cassette('cancel_order') do
           response = client.cancel(id: order.id)
-          expect(response).to eq('"true"')
+          expect(response).to eq('true')
         end
       end
     end
@@ -100,7 +100,7 @@ describe QuadrigaCX::Client do
       it 'withdraws bitcoins' do
         VCR.use_cassette('withdraw') do
           response = client.withdraw(amount: '0.01', address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
-          expect(response).to eq('"ok"')
+          expect(response).to eq('ok')
         end
       end
     end
@@ -113,6 +113,15 @@ describe QuadrigaCX::Client do
           expect(response.first.datetime).not_to be_nil
           expect(response.first.price).not_to be_nil
           expect(response.first.type).not_to be_nil
+        end
+      end
+    end
+
+    describe '#wallet_address' do
+      it 'returns a wallet address' do
+        VCR.use_cassette('wallet_address') do
+          response = client.wallet_address
+          expect(response.length).to be_between(26, 35)
         end
       end
     end

@@ -55,5 +55,10 @@ module QuadrigaCX
     def open_orders params={}
       request(:post, '/open_orders', params)
     end
+
+    # Returns a bitcoin deposit address for funding your account
+    def wallet_address params={}
+      request(:post, '/bitcoin_deposit_address', params)
+    end
   end
 end
