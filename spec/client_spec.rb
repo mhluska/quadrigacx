@@ -7,6 +7,16 @@ describe QuadrigaCX::Client do
     api_secret: ENV['QUADRIGACX_API_SECRET'],
   )}
 
+  def safe_limit_buy
+    worst_price = client.order_book.bids.last[0]
+    client.limit_buy(price: worst_price, amount: 1)
+  end
+
+  def safe_limit_sell
+    worst_price = client.order_book.asks.last[0]
+    client.limit_sell(price: worst_price, amount: 0.01)
+  end
+
   describe 'public' do
     describe '#order_book' do
       it 'returns a list of all open orders' do
@@ -16,6 +26,19 @@ describe QuadrigaCX::Client do
           expect(order_book.timestamp).not_to be_nil
           expect(order_book.bids.first.length).to equal 2
           expect(order_book.asks.first.length).to equal 2
+        end
+      end
+
+      context 'when using the ungrouped option' do
+        order = nil
+        after { VCR.use_cassette('order_book_ungrouped_cancel_order') { client.cancel(id: order.id) if order }}
+
+        it 'does not group same price orders' do
+          VCR.use_cassette('order_book_ungrouped') do
+            order = safe_limit_buy
+            ungrouped_bids = client.order_book(group: 0).bids
+            expect(ungrouped_bids[-2][0]).to eq(ungrouped_bids.last[0])
+          end
         end
       end
     end
@@ -45,31 +68,37 @@ describe QuadrigaCX::Client do
     end
 
     describe '#limit_buy' do
+      order = nil
+      after { VCR.use_cassette('limit_buy_cancel_order') { client.cancel(id: order.id) if order }}
+
       it 'throws an error when no price is provided' do
         expect { client.limit_buy }.to raise_error(QuadrigaCX::ConfigurationError)
       end
 
       it 'places a limit buy order' do
         VCR.use_cassette('limit_buy') do
-          response = client.limit_buy(price: '240', amount: '0.01') # 0.01 BTC
+          order = safe_limit_buy
 
-          expect(response.datetime).not_to be_nil
-          expect(response.id).not_to be_nil
+          expect(order.datetime).not_to be_nil
+          expect(order.id).not_to be_nil
         end
       end
     end
 
     describe '#limit_sell' do
+      order = nil
+      after { VCR.use_cassette('limit_sell_cancel_order') { client.cancel(id: order.id) if order }}
+
       it 'throws an error when no price is provided' do
         expect { client.limit_sell }.to raise_error(QuadrigaCX::ConfigurationError)
       end
 
       it 'places a limit sell order' do
         VCR.use_cassette('limit_sell') do
-          response = client.limit_sell(price: '240', amount: '0.01') # 0.01 BTC
+          order = safe_limit_sell
 
-          expect(response.datetime).not_to be_nil
-          expect(response.id).not_to be_nil
+          expect(order.datetime).not_to be_nil
+          expect(order.id).not_to be_nil
         end
       end
     end
@@ -77,7 +106,7 @@ describe QuadrigaCX::Client do
     describe '#market_buy' do
       it 'places a market buy order' do
         VCR.use_cassette('market_buy') do
-          response = client.market_buy(amount: '5.00') # 5 CAD
+          response = client.market_buy(amount: 5.00) # 5 CAD
 
           expect(response.amount).not_to be_nil
           expect(response.orders_matched.first.price).not_to be_nil
@@ -85,11 +114,11 @@ describe QuadrigaCX::Client do
       end
     end
 
-    describe '#cancel_order' do
-      let(:order) { client.limit_buy(price: '240', amount: '0.01') }
+    describe '#cancel' do
+      let(:order) { safe_limit_buy }
 
       it 'cancels an order' do
-        VCR.use_cassette('cancel_order') do
+        VCR.use_cassette('cancel') do
           response = client.cancel(id: order.id)
           expect(response).to eq('true')
         end
@@ -99,7 +128,7 @@ describe QuadrigaCX::Client do
     describe '#withdraw' do
       it 'withdraws bitcoins' do
         VCR.use_cassette('withdraw') do
-          response = client.withdraw(amount: '0.01', address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+          response = client.withdraw(amount: 0.01, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
           expect(response).to eq('ok')
         end
       end

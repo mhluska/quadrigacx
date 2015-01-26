@@ -30,28 +30,34 @@ module QuadrigaCX
     def hmac_request http_method, path, body={}
       raise 'API key, API secret and client ID required!' unless @api_key && @api_secret && @client_id
 
-      secret    = Digest::MD5.hexdigest(@api_secret)
-      nonce     = DateTime.now.strftime('%Q')
-      data      = [nonce + @api_key + @client_id].join
-      digest    = OpenSSL::Digest.new('sha256')
-      signature = OpenSSL::HMAC.hexdigest(digest, secret, data)
-      url       = "#{API_URL}#{path}"
+      payload = {}
+      url     = "#{API_URL}#{path}"
 
-      body.merge!({
-        key: @api_key,
-        nonce: nonce,
-        signature: signature,
-      })
+      if http_method == :get
+        url += '?' + URI.encode_www_form(body)
+      else
+        secret    = Digest::MD5.hexdigest(@api_secret)
+        nonce     = DateTime.now.strftime('%Q')
+        data      = [nonce + @api_key + @client_id].join
+        digest    = OpenSSL::Digest.new('sha256')
+        signature = OpenSSL::HMAC.hexdigest(digest, secret, data)
+
+        payload = body.merge({
+          key: @api_key,
+          nonce: nonce,
+          signature: signature,
+        })
+      end
 
       RestClient::Request.execute(
         url: url,
         method: http_method,
-        payload: body.to_json,
+        payload: payload.to_json,
         verify_ssl: false,
         headers: {
           content_type: :json,
           accept: :json,
-        }
+        },
       )
     end
 
