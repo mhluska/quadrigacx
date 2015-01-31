@@ -28,14 +28,14 @@ module QuadrigaCX
     end
 
     def hmac_request http_method, path, body={}
-      raise 'API key, API secret and client ID required!' unless @api_key && @api_secret && @client_id
-
       payload = {}
       url     = "#{API_URL}#{path}"
 
       if http_method == :get
         url += '?' + URI.encode_www_form(body)
       else
+        raise 'API key, API secret and client ID required!' unless @api_key && @api_secret && @client_id
+
         secret    = Digest::MD5.hexdigest(@api_secret)
         nonce     = DateTime.now.strftime('%Q')
         data      = [nonce + @api_key + @client_id].join
