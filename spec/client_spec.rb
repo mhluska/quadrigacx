@@ -154,5 +154,24 @@ describe QuadrigaCX::Client do
         end
       end
     end
+
+    describe '#user_transactions' do
+      it 'returns a list of transactions' do
+        VCR.use_cassette('user_transactions') do
+          response = client.user_transactions
+          expect(response.first.datetime).not_to be_nil
+        end
+      end
+
+      it 'returns a list of limited transactions' do
+        VCR.use_cassette('user_transactions_limited') do
+          limit    = 1
+          response = client.user_transactions(limit: limit)
+
+          # For some reason the API is off by one.
+          expect(response.length).to be (limit + 1)
+        end
+      end
+    end
   end
 end

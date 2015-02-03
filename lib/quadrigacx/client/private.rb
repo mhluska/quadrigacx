@@ -60,5 +60,14 @@ module QuadrigaCX
     def wallet_address params={}
       request(:post, '/bitcoin_deposit_address', params)
     end
+
+    # Returns a descending list of user transactions
+    # offset - optional, skip that many transactions before beginning to return results. Default: 0.
+    # limit  - optional, limit result to that many transactions. Default: 100.
+    # sort   - optional, sorting by date and time (asc - ascending; desc - descending). Default: desc.
+    # book   - optional, if not specified, will default to btc_cad
+    def user_transactions params={}
+      request(:post, '/user_transactions', params)
+    end
   end
 end
