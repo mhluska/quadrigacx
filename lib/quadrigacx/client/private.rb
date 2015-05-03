@@ -67,7 +67,7 @@ module QuadrigaCX
     # sort   - optional, sorting by date and time (asc - ascending; desc - descending). Default: desc.
     # book   - optional, if not specified, will default to btc_cad
     def user_transactions params={}
-      request(:post, '/user_transactions', params)
+      request(:post, '/user_transactions', params).each { |t| t.id = t.id.to_s }
     end
   end
 end

@@ -159,6 +159,7 @@ describe QuadrigaCX::Client do
       it 'returns a list of transactions' do
         VCR.use_cassette('user_transactions') do
           response = client.user_transactions
+          expect(response.first.id).to be_kind_of(String)
           expect(response.first.datetime).not_to be_nil
         end
       end
