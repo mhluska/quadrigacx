@@ -11,10 +11,11 @@ Gem::Specification.new do |s|
   s.homepage    = "http://mhluska.com/"
   s.license     = "MIT"
 
-  s.add_development_dependency 'rspec',     '~> 3.1'
-  s.add_development_dependency 'webmock',   '~> 1.20'
-  s.add_development_dependency 'vcr',       '~> 2.9'
-  s.add_development_dependency 'dotenv',    '~> 1.0'
+  s.add_development_dependency 'rspec',       '~> 3.1'
+  s.add_development_dependency 'webmock',     '~> 1.20'
+  s.add_development_dependency 'vcr',         '~> 2.9'
+  s.add_development_dependency 'dotenv',      '~> 1.0'
+  s.add_development_dependency 'gem-release', '~> 0.7'
 
   s.add_runtime_dependency 'json',          '~> 1.8'
   s.add_runtime_dependency 'rest-client',   '~> 1.7'
