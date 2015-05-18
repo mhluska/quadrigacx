@@ -8,16 +8,31 @@ describe QuadrigaCX::Client do
   )}
 
   def safe_limit_buy
-    worst_price = client.order_book.bids.last[0]
-    client.limit_buy(price: worst_price, amount: 1)
+    VCR.use_cassette('safe_limit_buy') do
+      worst_price = client.order_book.bids.last[0]
+      client.limit_buy(price: worst_price, amount: 1)
+    end
   end
 
   def safe_limit_sell
-    worst_price = client.order_book.asks.last[0]
-    client.limit_sell(price: worst_price, amount: 0.01)
+    VCR.use_cassette('safe_limit_sell') do
+      worst_price = client.order_book.asks.last[0]
+      client.limit_sell(price: worst_price, amount: 0.01)
+    end
   end
 
   describe 'public' do
+    describe '#ticker' do
+      it 'returns trading information' do
+        VCR.use_cassette('ticker') do
+          ticker = client.ticker
+
+          expect(ticker.high).not_to be_nil
+          expect(ticker.low).not_to be_nil
+        end
+      end
+    end
+
     describe '#order_book' do
       it 'returns a list of all open orders' do
         VCR.use_cassette('order_book') do

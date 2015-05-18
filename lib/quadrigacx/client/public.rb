@@ -1,5 +1,12 @@
 module QuadrigaCX
   module Public
+    # Return trading information.
+    #
+    # book - optional, book to return orders for. Default btc_cad.
+    def ticker params={}
+      request(:get, '/ticker', params)
+    end
+
     # List all open orders
     #
     # book  - optional, book to return orders for. Default btc_cad.

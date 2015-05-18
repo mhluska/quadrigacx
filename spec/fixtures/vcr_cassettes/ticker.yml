@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.quadrigacx.com/v2/ticker
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 18 May 2015 17:43:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '121'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d2411d0ddc2520ed2d339147096fba2131431971037; expires=Tue, 17-May-16
+        17:43:57 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=20206b3d4dee885a1e24ea36df1628d8; expires=Mon, 18-May-2015 19:43:57
+        GMT; Max-Age=7200; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 1e895e07bc840f9f-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA02NSw6AIAxE79K1IdD6q7fBaIQo0QSUhfHugjHR5ZvOm55g
+        7GSgA2QSCqGARfuQuWWBlDhYN/qg3ZZCVZLiRklq0qG3w9NrhZQJj6i316Ps
+        HeuyuzEnyKLGirFGzvtr/Gvaz9+36wZfH5RZjwAAAA==
+    http_version: 
+  recorded_at: Mon, 18 May 2015 17:46:49 GMT
+recorded_with: VCR 2.9.3
