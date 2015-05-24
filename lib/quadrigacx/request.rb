@@ -20,7 +20,11 @@ module QuadrigaCX
 
       # The `/cancel_order` route returns `"true"` instead of valid JSON.
       rescue JSON::ParserError
+        return true  if resp.body == '"true"'
+        return false if resp.body == '"false"'
+
         match = resp.body.match(/"(.*)"/)
+
         return match ? match[1] : resp.body
       end
 

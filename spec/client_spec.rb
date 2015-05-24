@@ -135,7 +135,7 @@ describe QuadrigaCX::Client do
       it 'cancels an order' do
         VCR.use_cassette('cancel') do
           response = client.cancel(id: order.id)
-          expect(response).to eq('true')
+          expect(response).to be true
         end
       end
     end
