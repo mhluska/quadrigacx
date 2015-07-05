@@ -13,22 +13,23 @@ module QuadrigaCX
     protected
 
     def request *args
-      resp = @use_hmac ? self.hmac_request(*args) : self.oauth_request(*args)
+      resp = hmac_request(*args)
+      json = JSON.parse(resp) rescue (return fix_json(resp))
+      json.kind_of?(Array) ? json.map { |i| to_hashie(i) } : to_hashie(json)
+    end
 
+    private
+
+    def fix_json response
       begin
-        json = JSON.parse(resp.body)
+        JSON.parse(response)
 
       # The `/cancel_order` route returns `"true"` instead of valid JSON.
       rescue JSON::ParserError
-        return true  if resp.body.strip == '"true"'
-        return false if resp.body.strip == '"false"'
-
-        match = resp.body.match(/"(.*)"/)
-
-        return match ? match[1] : resp.body
+        return true  if response.strip == '"true"'
+        return false if response.strip == '"false"'
+        response[/"(.*)"/, 1] || response
       end
-
-      json.kind_of?(Array) ? json.map { |i| to_hashie(i) } : to_hashie(json)
     end
 
     def hmac_request http_method, path, body={}
@@ -65,24 +66,22 @@ module QuadrigaCX
       )
     end
 
-    # Perform an OAuth API request. The client must be initialized
-    # with a valid OAuth access token to make requests with this method
-    #
-    # path   - Request path
-    # body -   Parameters for requests - GET and POST
-    #
-    # TODO(maros): Implement this when QuadrigaCX supports it.
-    def oauth_request http_method, path, body={}
-    end
+    def raise_error hash
+      errorClass =
+        case hash.error.code
+        when 21 then ExceedsAvailableBalance
+        when 22 then BelowMinimumOrderValue
+        when 23 then AboveMaximumOrderValue
+        else Error
+        end
 
-    private
+      raise errorClass.new(hash.error) if hash.error
+      raise errorClass.new(hash.errors.join(',')) if hash.errors
+    end
 
     def to_hashie json
       hash = Hashie::Mash.new(json)
-
-      raise Error.new(hash.error) if hash.error
-      raise Error.new(hash.errors.join(',')) if hash.errors
-
+      raise_error(hash) if hash.error
       hash
     end
   end

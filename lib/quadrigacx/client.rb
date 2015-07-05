@@ -19,7 +19,6 @@ module QuadrigaCX
         raise ArgumentError, "Options hash required"
       end
 
-      @use_hmac   = true
       @client_id  = options[:client_id]
       @api_key    = options[:api_key]
       @api_secret = options[:api_secret]

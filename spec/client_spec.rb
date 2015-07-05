@@ -98,6 +98,24 @@ describe QuadrigaCX::Client do
           expect(order.id).not_to be_nil
         end
       end
+
+      it 'throws an error when exceeding balance' do
+        VCR.use_cassette('limit_buy_above_maximum_order_value') do
+          expect { client.limit_buy(price: 1_000_000, amount: 1) }.to raise_error(QuadrigaCX::AboveMaximumOrderValue)
+        end
+      end
+
+      it 'throws an error when the amount is too small' do
+        VCR.use_cassette('limit_buy_below_minimum_order_value') do
+          expect { client.limit_buy(price: 100, amount: 0.00000001) }.to raise_error(QuadrigaCX::BelowMinimumOrderValue)
+        end
+      end
+
+      it 'throws an error when exceeding available balance' do
+        VCR.use_cassette('limit_buy_exceeds_available_balance') do
+          expect { client.limit_buy(price: 4999, amount: 1) }.to raise_error(QuadrigaCX::ExceedsAvailableBalance)
+        end
+      end
     end
 
     describe '#limit_sell' do

@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://mhluska.com/"
   s.license     = "MIT"
 
+  s.add_development_dependency 'byebug',      '~> 5.0'
   s.add_development_dependency 'rspec',       '~> 3.1'
   s.add_development_dependency 'webmock',     '~> 1.20'
   s.add_development_dependency 'vcr',         '~> 2.9'

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.quadrigacx.com/v2/buy
+    body:
+      encoding: UTF-8
+      string: '{"price":100,"amount":1.0e-08,"key":"kOnVDjfPPh","nonce":"1436134814405","signature":"021c293df298e506a10a662d18deb6aa81f0be90ff9d770a3abc44bdf045415f"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '152'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 05 Jul 2015 22:20:14 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d35efbfc1bfd0e98c5f4642689836fea91436134814; expires=Mon, 04-Jul-16
+        22:20:14 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=5b530dab54071514991afb20690f4a78; expires=Mon, 06-Jul-2015 22:20:14
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 201674bf2f2d21e0-EWR
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6tWSi0qyi9SsqpWSs5PSVWyMjLSUcpNLS5OTAdylDzzkvOL
+        ilKTSxQSc/NL80oUDPUMXHUtlGprAeoB5yg5AAAA
+    http_version: 
+  recorded_at: Sun, 05 Jul 2015 22:20:14 GMT
+recorded_with: VCR 2.9.3
