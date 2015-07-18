@@ -69,14 +69,18 @@ module QuadrigaCX
     def raise_error hash
       errorClass =
         case hash.error.code
-        when 21 then ExceedsAvailableBalance
-        when 22 then BelowMinimumOrderValue
-        when 23 then AboveMaximumOrderValue
+        when 21  then ExceedsAvailableBalance
+        when 22  then BelowMinimumOrderValue
+        when 23  then AboveMaximumOrderValue
+        when 106 then OrderNotFound
         else Error
         end
 
-      raise errorClass.new(hash.error) if hash.error
-      raise errorClass.new(hash.errors.join(',')) if hash.errors
+      message  = hash.error.code.to_s + ' '
+      message += hash.error.to_s if hash.error
+      message += hash.errors.join(',') if hash.errors
+
+      raise errorClass.new(message)
     end
 
     def to_hashie json
