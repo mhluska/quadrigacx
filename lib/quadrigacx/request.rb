@@ -72,7 +72,7 @@ module QuadrigaCX
         when 21  then ExceedsAvailableBalance
         when 22  then BelowMinimumOrderValue
         when 23  then AboveMaximumOrderValue
-        when 106 then OrderNotFound
+        when 106 then NotFound
         else Error
         end
 
