@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    quadrigacx (0.9.0)
-      hashie (~> 3.3)
+    quadrigacx (0.10.1)
       json (~> 1.8)
       rest-client (~> 1.7)
 
@@ -20,7 +19,6 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dotenv (1.0.2)
     gem-release (0.7.3)
-    hashie (3.4.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     json (1.8.3)

@@ -20,7 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'json',        '~> 1.8'
   spec.add_runtime_dependency 'rest-client', '~> 1.7'
-  spec.add_runtime_dependency 'hashie',      '~> 3.3'
 
   spec.add_development_dependency 'byebug',      '~> 5.0'
   spec.add_development_dependency 'rspec',       '~> 3.1'

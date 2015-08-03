@@ -1,10 +1,10 @@
 require 'rest-client'
 require 'json'
-require 'hashie'
 require 'openssl'
 require 'date'
 require 'uri'
 require 'digest'
+require 'ostruct'
 require 'quadrigacx/error'
 
 module QuadrigaCX
@@ -14,23 +14,19 @@ module QuadrigaCX
     protected
 
     def request *args
-      resp = hmac_request(*args)
-      json = JSON.parse(resp) rescue (return fix_json(resp))
-      json.kind_of?(Array) ? json.map { |i| to_hashie(i) } : to_hashie(json)
+      response = hmac_request(*args)
+      response = JSON.parse(response, object_class: OpenStruct) rescue (return fix_json(response))
+
+      check_error(response)
     end
 
     private
 
     def fix_json response
-      begin
-        JSON.parse(response)
-
       # The `/cancel_order` route returns `"true"` instead of valid JSON.
-      rescue JSON::ParserError
-        return true  if response.strip == '"true"'
-        return false if response.strip == '"false"'
-        response[/"(.*)"/, 1] || response
-      end
+      return true  if response.strip == '"true"'
+      return false if response.strip == '"false"'
+      response[/"(.*)"/, 1] || response
     end
 
     def hmac_request http_method, path, body={}
@@ -71,27 +67,28 @@ module QuadrigaCX
       )
     end
 
-    def raise_error hash
-      errorClass =
-        case hash.error.code
-        when 21  then ExceedsAvailableBalance
-        when 22  then BelowMinimumOrderValue
-        when 23  then AboveMaximumOrderValue
-        when 106 then NotFound
-        else Error
-        end
+    def check_error responses
+      [responses].flatten.each do |response|
+        
+        next unless response.error
 
-      message  = hash.error.code.to_s + ' '
-      message += hash.error.to_s if hash.error
-      message += hash.errors.join(',') if hash.errors
+        errorClass =
+          case response.error.code
+          when 21  then ExceedsAvailableBalance
+          when 22  then BelowMinimumOrderValue
+          when 23  then AboveMaximumOrderValue
+          when 106 then NotFound
+          else Error
+          end
 
-      raise errorClass.new(message)
-    end
+        message  = response.error.code.to_s + ' '
+        message += response.error.to_s if response.error
+        message += response.errors.join(',') if response.errors
 
-    def to_hashie json
-      hash = Hashie::Mash.new(json)
-      raise_error(hash) if hash.error
-      hash
+        raise errorClass.new(message)
+      end
+
+      responses
     end
   end
 end
