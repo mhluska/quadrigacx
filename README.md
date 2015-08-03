@@ -29,7 +29,7 @@ QuadrigaCX.configure do |config|
   config.api_secret = 'your-api-secret'
 end
 
-client = QuadrigaCX.new
+client = QuadrigaCX::Client.new
 ```
 
 ### Public Methods
@@ -90,7 +90,7 @@ order = client.limit_sell(price: 200, amount: 1)
 Place a market order. Returns JSON describing the order.
 
 ```ruby
-order = client.market_buy(amount: 1)
+order = client.market_buy(amount: 5.00)
 ```
 
 #### Market Sell
@@ -98,7 +98,7 @@ order = client.market_buy(amount: 1)
 Place a market order. Returns JSON describing the order.
 
 ```ruby
-order = client.market_sell(amount: 1)
+order = client.market_sell(amount: 0.01)
 ```
 
 #### Cancel
