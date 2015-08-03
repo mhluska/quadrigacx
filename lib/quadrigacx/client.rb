@@ -1,11 +1,11 @@
-require_relative 'client/public'
-require_relative 'client/private'
-
 module QuadrigaCX
+  autoload :Public,  'quadrigacx/client/public'
+  autoload :Private, 'quadrigacx/client/private'
+
   class Client
-    include QuadrigaCX::Request
-    include QuadrigaCX::Public
-    include QuadrigaCX::Private
+    include Request
+    include Public
+    include Private
 
     attr_reader :api_key, :api_secret, :client_id
 

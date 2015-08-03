@@ -1,36 +1,18 @@
-require 'quadrigacx/request'
-require 'quadrigacx/client'
-require 'quadrigacx/version'
-require 'quadrigacx/error'
-
 module QuadrigaCX
-  @@options = {}
+  autoload :Request, 'quadrigacx/request'
+  autoload :Client,  'quadrigacx/client'
+  autoload :Version, 'quadrigacx/version'
 
-  # Define a global configuration
-  #
-  # options[:api_key]
-  # options[:api_secret]
-  #
-  def self.configure options={}
-    unless options.kind_of?(Hash)
-      raise ArgumentError, "Options hash required"
-    end
-
-    @@options[:client_id]  = options[:client_id]
-    @@options[:api_key]    = options[:api_key]
-    @@options[:api_secret] = options[:api_secret]
-    @@options
+  class << self
+    attr_accessor :configuration
   end
 
-  # Returns global configuration hash
-  #
-  def self.configuration
-    @@options
+  def self.configure
+    self.configuration ||= Configuration.new
+    yield(configuration)
   end
 
-  # Resets the global configuration
-  #
-  def self.reset_configuration
-    @@options = {}
+  class Configuration
+    attr_accessor :client_id, :api_key, :api_secret
   end
 end
