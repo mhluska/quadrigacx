@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    quadrigacx (0.11.0)
+    quadrigacx (0.12.1)
       json (~> 1.8)
       rest-client (~> 1.7)
 
