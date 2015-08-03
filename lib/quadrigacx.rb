@@ -1,4 +1,5 @@
 module QuadrigaCX
+  autoload :Error,   'quadrigacx/error'
   autoload :Request, 'quadrigacx/request'
   autoload :Client,  'quadrigacx/client'
   autoload :Version, 'quadrigacx/version'
