@@ -7,7 +7,7 @@ module QuadrigaCX
       request(:get, '/ticker', params)
     end
 
-    # List all open orders
+    # List all open orders.
     #
     # book  - optional, book to return orders for. Default btc_cad.
     # group - optional, group orders with the same price (0 - false; 1 - true). Default: 1.
@@ -15,7 +15,7 @@ module QuadrigaCX
       request(:get, '/order_book', params)
     end
 
-    # Returns descending JSON list of recent trades
+    # Return descending JSON list of recent trades.
     #
     # book - optional, book to return orders for (default btc_cad)
     # time - optional, time frame for transaction export ("minute" - 1 minute, "hour" - 1 hour). Default: hour.

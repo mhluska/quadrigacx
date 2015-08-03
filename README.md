@@ -36,77 +36,101 @@ client = QuadrigaCX.new
 
 #### Ticker
 
+Return trading information.
+
 ```ruby
-ticker = subject.ticker
+ticker = client.ticker
 ```
 
 #### Order Book
 
+List all open orders.
+
 ```ruby
-order_book = subject.order_book
-order_book_ungrouped = subject.order_book(group: 0)
+order_book = client.order_book
+order_book_ungrouped = client.order_book(group: 0)
 ```
 
 #### Transactions
 
+Return descending JSON list of recent trades.
+
 ```ruby
-transactions = subject.transactions
+transactions = client.transactions
 ```
 
 ### Private Methods
 
 #### Balance
 
+List all account balances.
+
 ```ruby
-balance = subject.balance
+balance = client.balance
 ```
 
 #### Limit Buy
 
+Place a limit buy order. Returns JSON describing the order.
+
 ```ruby
-order = subject.limit_buy(price: 200, amount: 1)
+order = client.limit_buy(price: 200, amount: 1)
 ```
 
 #### Limit Sell
 
+Place a limit sell order. Returns JSON describing the order.
+
 ```ruby
-order = subject.limit_sell(price: 200, amount: 1)
+order = client.limit_sell(price: 200, amount: 1)
 ```
 
 #### Market Buy
 
+Place a market order. Returns JSON describing the order.
+
 ```ruby
-order = subject.market_buy(amount: 1)
+order = client.market_buy(amount: 1)
 ```
 
 #### Cancel
 
+Cancel an order.
+
 ```ruby
-subject.cancel(order.id)
+client.cancel(order.id)
 ```
 
 #### Withdraw
 
+Withdraw bitcoins.
+
 ```ruby
-response = subject.withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+response = client.withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
 ```
 
 #### Open Orders
 
+Return a JSON list of open orders.
+
 ```ruby
-response = subject.open_orders
+response = client.open_orders
 ```
 
 #### Wallet Address
 
+Return a bitcoin deposit address.
+
 ```ruby
-response = subject.wallet_address
+response = client.wallet_address
 ```
 
 #### User Transactions
 
+Return a list of user transactions.
+
 ```ruby
-response = subject.user_transactions
+response = client.user_transactions
 ```
 
 ## Contributing
