@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.quadrigacx.com/v2/buy
+    method: get
+    uri: https://api.quadrigacx.com/v2/transactions
     body:
       encoding: UTF-8
-      string: '{"price":1000000,"amount":1,"key":"kOnVDjfPPh","nonce":"1436134811802","signature":"08e90f76f7f5d2d5deda2bd2254d2ace2a60fde5c8c9fb21f90e93394268351d"}'
+      string: "{}"
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '150'
+      - '2'
       User-Agent:
       - Ruby
   response:
@@ -25,17 +25,17 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Sun, 05 Jul 2015 22:20:14 GMT
+      - Mon, 03 Aug 2015 13:59:38 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '111'
+      - '156'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d32dff9e85d8cfd61f02b3ce7236432441436134814; expires=Mon, 04-Jul-16
-        22:20:14 GMT; path=/; domain=.quadrigacx.com; HttpOnly
-      - ci_session=a65b3c51701e5c4897d5cdf591000bb4; expires=Mon, 06-Jul-2015 22:20:14
+      - __cfduid=dab0415c9c4452e7f07f40a3f0c16709b1438610378; expires=Tue, 02-Aug-16
+        13:59:38 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=a6227c86e22adefe778e5045896961f2; expires=Tue, 04-Aug-2015 13:59:38
         GMT; Max-Age=86400; path=/
       Content-Encoding:
       - gzip
@@ -44,13 +44,14 @@ http_interactions:
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.9
       Cf-Ray:
-      - 201674bbbfc92192-EWR
+      - 21028b50afcc27f2-YYZ
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA6tWSi0qyi9SsqpWSs5PSVWyMjLWUcpNLS5OTAdylDzzkvOL
-        ilKTSxQKijKTUxVUDHUMDAxAWM/AwNnRRSGzWCExKb8sVaEkI1UhN7EiM7c0
-        VyE/TUHFFKFIqbYWALUjnkdnAAAA
+        H4sIAAAAAAAAA33QPQ6DMAyG4btkRtHn2I4TrlJ1QKUDQ39U0ani7g0sbQDh
+        8R0e2T59XHd7vO+jax08FMu4xvXdeC2NhFMksFppz9dwmSMbe5ESxqF3LSFI
+        xNRUEgFB9yQwV5L6nP8lzSuJU9G3EnKmdLiTppVkOahJsI0kSY53skpiD+z+
+        CUZClSR+Ofcnxen8BTBzHJ5zAQAA
     http_version: 
-  recorded_at: Sun, 05 Jul 2015 22:20:14 GMT
+  recorded_at: Mon, 03 Aug 2015 13:59:37 GMT
 recorded_with: VCR 2.9.3

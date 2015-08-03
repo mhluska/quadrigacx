@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.quadrigacx.com/v2/order_book
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 03 Aug 2015 13:59:35 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1699'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d988f186ccdc3680d3ca92e4911879fcc1438610375; expires=Tue, 02-Aug-16
+        13:59:35 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=8863f87d0475c706f99595b474cebd37; expires=Tue, 04-Aug-2015 13:59:35
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 21028b4023120fa5-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 13:59:34 GMT
+recorded_with: VCR 2.9.3

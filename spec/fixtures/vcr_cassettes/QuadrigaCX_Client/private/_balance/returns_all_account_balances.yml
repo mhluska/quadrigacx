@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.quadrigacx.com/v2/balance
+    body:
+      encoding: UTF-8
+      string: '{"key":"kOnVDjfPPh","nonce":"1438610377627","signature":"8649330a91990ec92ae88a214eedb230a92bfe4a62576d72e287b8de8c993c97"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '123'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 03 Aug 2015 13:59:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '132'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d845baa530eaa45ccdd23ce444c6af7a81438610378; expires=Tue, 02-Aug-16
+        13:59:38 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=170c1e0d888faecdf4ae5a99dbfa6bf0; expires=Tue, 04-Aug-2015 13:59:39
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 21028b549a2b0fab-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22PSwqAIBBA7+I6YlpY0mVi1AkCaWEfgujuYU6Emjvf08fM
+        KfRqBtxxcqgdiV5ADbKDVkIrqkd6WsjvZKPjw06jw9kU3wzapNmoWirmWY7p
+        F3rfbovN5wLGZSLQZJYAD9yKAs8e1M9ebNISi5EikOF63WTSGZw4AQAA
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 13:59:38 GMT
+recorded_with: VCR 2.9.3
