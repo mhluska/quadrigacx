@@ -25,17 +25,17 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Mon, 03 Aug 2015 13:59:38 GMT
+      - Mon, 03 Aug 2015 15:21:20 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '156'
+      - '164'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=dab0415c9c4452e7f07f40a3f0c16709b1438610378; expires=Tue, 02-Aug-16
-        13:59:38 GMT; path=/; domain=.quadrigacx.com; HttpOnly
-      - ci_session=a6227c86e22adefe778e5045896961f2; expires=Tue, 04-Aug-2015 13:59:38
+      - __cfduid=db9ec9e1e958e0fa90005baac27b661b71438615280; expires=Tue, 02-Aug-16
+        15:21:20 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=dff88d5345aa578c979ce3189a6ffa29; expires=Tue, 04-Aug-2015 15:21:20
         GMT; Max-Age=86400; path=/
       Content-Encoding:
       - gzip
@@ -44,14 +44,14 @@ http_interactions:
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.9
       Cf-Ray:
-      - 21028b50afcc27f2-YYZ
+      - 210303008f91053a-YYZ
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA33QPQ6DMAyG4btkRtHn2I4TrlJ1QKUDQ39U0ani7g0sbQDh
-        8R0e2T59XHd7vO+jax08FMu4xvXdeC2NhFMksFppz9dwmSMbe5ESxqF3LSFI
-        xNRUEgFB9yQwV5L6nP8lzSuJU9G3EnKmdLiTppVkOahJsI0kSY53skpiD+z+
-        CUZClSR+Ofcnxen8BTBzHJ5zAQAA
+        H4sIAAAAAAAAA4XQuw7CMAyF4XfJXEXHdhwnfRXEUFGGDlyEyoT67qQbSauy
+        /sMnH58+brg93vfZ9Q6eAFYArnPjMF9LoyApkrLm0p6v6bJGMfV5DfM0up7A
+        wbB0lcTMwJ4EWCWJV/xKMTdSuWj3psCWKil61FJqpGykEqCtJJnlWLJGUmOE
+        ZBuJOfKxFNo/gQSkm3VM8c86Wc5f6U9T5L0BAAA=
     http_version: 
-  recorded_at: Mon, 03 Aug 2015 13:59:37 GMT
+  recorded_at: Mon, 03 Aug 2015 15:21:19 GMT
 recorded_with: VCR 2.9.3

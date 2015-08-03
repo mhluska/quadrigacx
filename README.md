@@ -93,6 +93,14 @@ Place a market order. Returns JSON describing the order.
 order = client.market_buy(amount: 1)
 ```
 
+#### Market Sell
+
+Place a market order. Returns JSON describing the order.
+
+```ruby
+order = client.market_sell(amount: 1)
+```
+
 #### Cancel
 
 Cancel an order.

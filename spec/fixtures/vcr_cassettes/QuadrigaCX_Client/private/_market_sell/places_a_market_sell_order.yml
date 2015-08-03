@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.quadrigacx.com/v2/buy
+    uri: https://api.quadrigacx.com/v2/sell
     body:
       encoding: UTF-8
-      string: '{"amount":5.0,"key":"kOnVDjfPPh","nonce":"1438615964223","signature":"cd3dbe908c3a4383610345358b271fd9016323a35140eb51221418f6ad8f5cfb"}'
+      string: '{"amount":0.01,"key":"kOnVDjfPPh","nonce":"1438616081424","signature":"540b462e2149765f11bffc4d1afb9cbd2e0d5ba460dac3136119b16527e6fae9"}'
     headers:
       Accept:
       - application/json
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '136'
+      - '137'
       User-Agent:
       - Ruby
   response:
@@ -25,17 +25,17 @@ http_interactions:
       Server:
       - cloudflare-nginx
       Date:
-      - Mon, 03 Aug 2015 15:32:46 GMT
+      - Mon, 03 Aug 2015 15:34:43 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '77'
+      - '79'
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d67f91a4da6ac0de075e49e2af6df5f041438615965; expires=Tue, 02-Aug-16
-        15:32:45 GMT; path=/; domain=.quadrigacx.com; HttpOnly
-      - ci_session=feed32ad6a1c6b9b71a3315fc2c4616b; expires=Tue, 04-Aug-2015 15:32:45
+      - __cfduid=dbebe7559d1673477033d6f4d06a009561438616082; expires=Tue, 02-Aug-16
+        15:34:42 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=b5457846e2d4bee55c6f9096ba11973b; expires=Tue, 04-Aug-2015 15:34:42
         GMT; Max-Age=86400; path=/
       Content-Encoding:
       - gzip
@@ -44,12 +44,12 @@ http_interactions:
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.9
       Cf-Ray:
-      - 210313b89ea227da-YYZ
+      - 210316951d2b27e0-YYZ
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA6tWSszNL80rUbJSMtAzMDQGAyUdpfyilNSi4vjcxJLkjNQU
-        JavoahwKC4oyk1OBgsbmpnoGBkq1sbUA09kPSVMAAAA=
+        H4sIAAAAAAAAA6tWSszNL80rUbJSMtYzN1bSUcovSkktKo7PTSxJzkhNUbKK
+        roYrMdAzMNRRKijKTE4FqTcH6jBQqo2tBQBMIombRQAAAA==
     http_version: 
-  recorded_at: Mon, 03 Aug 2015 15:32:44 GMT
+  recorded_at: Mon, 03 Aug 2015 15:34:42 GMT
 recorded_with: VCR 2.9.3

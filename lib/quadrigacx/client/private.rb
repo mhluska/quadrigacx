@@ -34,6 +34,14 @@ module QuadrigaCX
       request(:post, '/buy', params)
     end
 
+    # Place a market order. Returns JSON describing the order.
+    #
+    # amount - amount of minor currency to spend
+    # book   - optional, if not specified, will default to btc_cad
+    def market_sell params={}
+      request(:post, '/sell', params)
+    end
+
     # Cancel an order.
     #
     # id – a 64 characters long hexadecimal string taken from the list of orders

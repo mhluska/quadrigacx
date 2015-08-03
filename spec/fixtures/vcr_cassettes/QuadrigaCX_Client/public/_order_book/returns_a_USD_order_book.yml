@@ -2,6 +2,71 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.quadrigacx.com/v2/order_book?book=btc_usd
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 03 Aug 2015 14:42:28 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '633'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db0a5db876322b45a8bbf7aba33c7700c1438612948; expires=Tue, 02-Aug-16
+        14:42:28 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=5778e94f142ef7354af60d3df0176144; expires=Tue, 04-Aug-2015 14:42:28
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 2102ca0f8f370f9f-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3WVS27cMAyG7+J1IPApkrlKMIsU7SIoAhRIdkXvXtqUPbIz
+        8fITzccvkvq7fL69//r4fH3/szwvKOwdKcSXp+XH28+P5fnlZSGLRpAEGgJ6
+        7+TL7ak4RnJs0Y0gv8G9AW0czci77dwawMYV6hu8N18jUiPmM9fVPsOwz1yb
+        +uanqxlI3Llwcmso5hayc2mim/9LXG5edZkYnrhJ+e8EOPMtf9EGZ0dpWQlB
+        qBMeCcEo2C8/dKqDVNTcJ46NNuU4lTVXkRgH0HQtAa815AHhFnoNe+JD63Nk
+        7d/wrMnW2lLaWWuVxqumdK1ZhxiZUY/TwVFbZ5pUVfwm8p4pXA7Yq2b+ynG9
+        np7XY2x3Ptrrmin3x5ziaEc9ca+2uyZKVm2KTQzcdecYxfOKWBSJ+uCZZ40B
+        nfwAPMwHIx4LgeEPDm5Py+vH7zGhzi3iQcou+13YmXsLf2Tv3/gZqfG1kfNA
+        H2mbfExEJ5t4ZCa2cQdxNr/z4FolLAyyj27gnhDC3JZBtXqgpY/OijvnxhXX
+        WVDu9kfbd2CxPnHZBTrlGRVXznXxenc2Vt6Fc60MzMFFDT14L3s826fCvXoJ
+        6MxxDA86ddOJ61h5aqqHfQ5bcaM++6EmWPpQ7jaTO9fhx+BsH3vcmobBuQmV
+        n1n/lfeyl24SdHDJHV56GvFa2+DasGaENWjyo8214uYtkh88hxu/Ni5DzrhU
+        XOLtCg7OFbdf7aXixrziGfJJqz6Js300GzPes6kOnXOW97ryBcxXp2acCY5F
+        nsMP3qm4HhxWvvtX79VX61M6xVW3u/3MQw8OwZwlb1xib9DZ0e3ff/g41d3P
+        BwAA
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 14:42:27 GMT
+- request:
+    method: get
     uri: https://api.quadrigacx.com/v2/order_book
     body:
       encoding: UTF-8
@@ -33,9 +98,9 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d6f0a4e4ee965034483854f142cabaadf1438612948; expires=Tue, 02-Aug-16
+      - __cfduid=d41e26d477af281fe776309c8fa5a07271438612948; expires=Tue, 02-Aug-16
         14:42:28 GMT; path=/; domain=.quadrigacx.com; HttpOnly
-      - ci_session=caa4a869a1716011cc98310b0bc11658; expires=Tue, 04-Aug-2015 14:42:28
+      - ci_session=04e0c9d38c9ddecb7b4e47aac5235b26; expires=Tue, 04-Aug-2015 14:42:28
         GMT; Max-Age=86400; path=/
       Content-Encoding:
       - gzip
@@ -44,7 +109,7 @@ http_interactions:
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.9
       Cf-Ray:
-      - 2102ca0dee2f27f2-YYZ
+      - 2102ca112fe90fab-YYZ
     body:
       encoding: ASCII-8BIT
       string: !binary |-

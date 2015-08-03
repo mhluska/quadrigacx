@@ -1,0 +1,162 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.quadrigacx.com/v2/transactions?book=BTC_USD
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 03 Aug 2015 14:34:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '77'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d899a2b6c23291f2e6b28d95edfba5c861438612478; expires=Tue, 02-Aug-16
+        14:34:38 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=ce6188cfbc0b4872644e7da2a0b7e06c; expires=Tue, 04-Aug-2015 14:34:39
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 2102be980a5627d4-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA6tWSi0qyi9SsqpWSs5PSVWyMjLQUcpNLS5OTAdylELzsvPy
+        y/MU/ItSUouc8vOzFZxCnONDg12UamsBRbEXSTsAAAA=
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 14:34:38 GMT
+- request:
+    method: get
+    uri: https://api.quadrigacx.com/v2/transactions?book=btc_usd
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 03 Aug 2015 15:21:22 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '104'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=ddfe4116908801505fa68cef47f97ca5e1438615281; expires=Tue, 02-Aug-16
+        15:21:21 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=d6ed7acb73badb840dd1fcfd3cc156fa; expires=Tue, 04-Aug-2015 15:21:22
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 2103030866e927da-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4uuVkrMzS/NK1GyUjLQMzA2AAMlHaWUxJJUoJihibGFmaGx
+        qYExUKygKDMZJGhkYaBnbggUKMlMUbIyNDAyMTOr1UE1yRCHSYaGZmgmmZmg
+        mGRaGwsAVsAq65UAAAA=
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 15:21:20 GMT
+- request:
+    method: get
+    uri: https://api.quadrigacx.com/v2/transactions
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Mon, 03 Aug 2015 15:21:23 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '164'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d51c62441d0bc342b9f33a66e25dfe3641438615283; expires=Tue, 02-Aug-16
+        15:21:23 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      - ci_session=2847ee5eb1bffbd23e2b77d3cee074a2; expires=Tue, 04-Aug-2015 15:21:23
+        GMT; Max-Age=86400; path=/
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.9
+      Cf-Ray:
+      - 21030310e99e27e0-YYZ
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA4XQuw7CMAyF4XfJXEXHdhwnfRXEUFGGDlyEyoT67qQbSauy
+        /sMnH58+brg93vfZ9Q6eAFYArnPjMF9LoyApkrLm0p6v6bJGMfV5DfM0up7A
+        wbB0lcTMwJ4EWCWJV/xKMTdSuWj3psCWKil61FJqpGykEqCtJJnlWLJGUmOE
+        ZBuJOfKxFNo/gQSkm3VM8c86Wc5f6U9T5L0BAAA=
+    http_version: 
+  recorded_at: Mon, 03 Aug 2015 15:21:22 GMT
+recorded_with: VCR 2.9.3
