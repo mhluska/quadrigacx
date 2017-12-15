@@ -1,8 +1,5 @@
 require 'vcr'
-require 'dotenv'
 require 'quadrigacx'
-
-Dotenv.load
 
 RSpec.configure do |config|
   config.color = true
@@ -15,7 +12,7 @@ VCR.configure do |config|
 end
 
 QuadrigaCX.configure do |config|
-  config.client_id  = ENV['QUADRIGACX_CLIENT_ID']
-  config.api_key    = ENV['QUADRIGACX_API_KEY']
-  config.api_secret = ENV['QUADRIGACX_API_SECRET']
+  config.client_id  = "client_id"
+  config.api_key    = "api_key"
+  config.api_secret = "api_secret"
 end

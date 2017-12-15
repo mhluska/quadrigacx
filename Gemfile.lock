@@ -17,7 +17,6 @@ GEM
     diff-lcs (1.2.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (1.0.2)
     gem-release (0.7.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -56,10 +55,12 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.7)
   byebug (~> 5.0)
-  dotenv (~> 1.0)
   gem-release (~> 0.7)
   quadrigacx!
   rake (~> 10.0)
   rspec (~> 3.1)
   vcr (~> 2.9)
   webmock (~> 1.20)
+
+BUNDLED WITH
+   1.16.0
