@@ -39,7 +39,7 @@ module QuadrigaCX
         client_id  = QuadrigaCX.configuration.client_id
         api_key    = QuadrigaCX.configuration.api_key
         api_secret = QuadrigaCX.configuration.api_secret
-        
+
         raise 'API key, API secret and client ID required!' unless api_key && api_secret && client_id
 
         nonce     = DateTime.now.strftime('%Q')
@@ -68,7 +68,7 @@ module QuadrigaCX
 
     def check_error responses
       [responses].flatten.each do |response|
-        
+
         next unless response.error
 
         errorClass =
