@@ -39,14 +39,13 @@ module QuadrigaCX
         client_id  = QuadrigaCX.configuration.client_id
         api_key    = QuadrigaCX.configuration.api_key
         api_secret = QuadrigaCX.configuration.api_secret
-        
+
         raise 'API key, API secret and client ID required!' unless api_key && api_secret && client_id
 
-        secret    = Digest::MD5.hexdigest(api_secret)
         nonce     = DateTime.now.strftime('%Q')
-        data      = [nonce + api_key + client_id].join
+        data      = [nonce + client_id + api_key].join
         digest    = OpenSSL::Digest.new('sha256')
-        signature = OpenSSL::HMAC.hexdigest(digest, secret, data)
+        signature = OpenSSL::HMAC.hexdigest(digest, api_secret, data)
 
         payload = body.merge({
           key: api_key,
@@ -69,7 +68,7 @@ module QuadrigaCX
 
     def check_error responses
       [responses].flatten.each do |response|
-        
+
         next unless response.error
 
         errorClass =
