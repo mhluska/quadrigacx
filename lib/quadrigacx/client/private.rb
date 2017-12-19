@@ -28,7 +28,7 @@ module QuadrigaCX
 
     # Place a market order. Returns JSON describing the order.
     #
-    # amount - amount of minor currency to spend
+    # amount - amount of major currency to spend
     # book   - optional, if not specified, will default to btc_cad
     def market_buy params={}
       request(:post, '/buy', params)
@@ -36,7 +36,7 @@ module QuadrigaCX
 
     # Place a market order. Returns JSON describing the order.
     #
-    # amount - amount of minor currency to spend
+    # amount - amount of major currency to sell
     # book   - optional, if not specified, will default to btc_cad
     def market_sell params={}
       request(:post, '/sell', params)
@@ -72,7 +72,7 @@ module QuadrigaCX
     # Return a list of user transactions.
     #
     # offset - optional, skip that many transactions before beginning to return results. Default: 0.
-    # limit  - optional, limit result to that many transactions. Default: 100.
+    # limit  - optional, limit result to that many transactions. Default: 50.
     # sort   - optional, sorting by date and time (asc - ascending; desc - descending). Default: desc.
     # book   - optional, if not specified, will default to btc_cad
     def user_transactions params={}
