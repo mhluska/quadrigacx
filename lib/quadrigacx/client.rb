@@ -16,7 +16,7 @@ module QuadrigaCX
     #
     def initialize options={}
       unless options.kind_of?(Hash)
-        raise ArgumentError, "Options hash required"
+        raise ArgumentError, 'Options hash required'
       end
 
       @client_id  = options[:client_id]
