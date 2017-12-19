@@ -101,12 +101,12 @@ Place a market order. Returns JSON describing the order.
 order = client.market_sell(amount: 0.01)
 ```
 
-#### Cancel
+#### Cancel Order
 
 Cancel an order.
 
 ```ruby
-client.cancel(order.id)
+client.cancel_order(order.id)
 ```
 
 #### Withdraw

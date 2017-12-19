@@ -37,7 +37,7 @@ describe QuadrigaCX::Client, :vcr do
 
       context 'when using the group option' do
         let!(:order) { safe_limit_buy }
-        after { subject.cancel(id: order.id) }
+        after { subject.cancel_order(id: order.id) }
 
         it 'does not group same price orders' do
           ungrouped_bids = subject.order_book(group: 0).bids
@@ -93,7 +93,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:order_cad) { safe_limit_buy }
       let(:order_usd) { safe_limit_buy(book: :btc_usd) }
 
-      after { subject.cancel(id: order_cad.id) && subject.cancel(id: order_usd.id) }
+      after { subject.cancel_order(id: order_cad.id) && subject.cancel_order(id: order_usd.id) }
 
       it 'places a limit buy order_cad' do
         expect(order_cad.datetime).not_to be_nil
@@ -116,7 +116,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:order_cad) { safe_limit_sell }
       let(:order_usd) { safe_limit_sell(book: :btc_usd) }
 
-      after { subject.cancel(id: order_cad.id) && subject.cancel(id: order_usd.id) }
+      after { subject.cancel_order(id: order_cad.id) && subject.cancel_order(id: order_usd.id) }
 
       it 'places a limit sell order' do
         expect(order_cad.datetime).not_to be_nil
@@ -157,11 +157,11 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
-    describe '#cancel' do
+    describe '#cancel_order' do
       let(:order) { safe_limit_buy }
 
       it 'cancels an order' do
-        response = subject.cancel(id: order.id)
+        response = subject.cancel_order(id: order.id)
         expect(response).to be true
       end
     end
@@ -178,7 +178,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:open_orders_usd) { subject.open_orders(book: :btc_usd) }
       let!(:orders) { [safe_limit_buy, safe_limit_buy(book: :btc_usd)] }
 
-      after { orders.each { |order| subject.cancel(id: order.id) }}
+      after { orders.each { |order| subject.cancel_order(id: order.id) }}
 
       it 'lists open orders' do
         expect(open_orders_cad.first.datetime).not_to be_nil
