@@ -49,14 +49,6 @@ module QuadrigaCX
       request(:post, '/cancel_order', params)
     end
 
-    # Withdraw bitcoins.
-    #
-    # amount  – The amount to withdraw.
-    # address – The bitcoin address we will send the amount to.
-    def withdraw params={}
-      request(:post, '/bitcoin_withdrawal', params)
-    end
-
     # Return a JSON list of open orders.
     #
     # book - optional, if not specified, will default to btc_cad.
@@ -64,8 +56,17 @@ module QuadrigaCX
       request(:post, '/open_orders', params)
     end
 
+    # Withdraw bitcoins.
+    #
+    # amount  – The amount to withdraw.
+    # address – The bitcoin address we will send the amount to.
+    def bitcoin_withdraw params={}
+      request(:post, '/bitcoin_withdrawal', params)
+    end
+
+
     # Return a bitcoin deposit address.
-    def wallet_address params={}
+    def bitcoin_deposit_address params={}
       request(:post, '/bitcoin_deposit_address', params)
     end
 

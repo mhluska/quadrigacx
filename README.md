@@ -109,14 +109,6 @@ Cancel an order.
 client.cancel(order.id)
 ```
 
-#### Withdraw
-
-Withdraw bitcoins.
-
-```ruby
-response = client.withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
-```
-
 #### Open Orders
 
 Return a JSON list of open orders.
@@ -125,12 +117,20 @@ Return a JSON list of open orders.
 response = client.open_orders
 ```
 
-#### Wallet Address
+#### Withdraw Bitcoins
+
+Withdraw bitcoins.
+
+```ruby
+response = client.bitcoin_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+```
+
+#### Bitcoin Deposit Address
 
 Return a bitcoin deposit address.
 
 ```ruby
-response = client.wallet_address
+response = client.bitcoin_deposit_address
 ```
 
 #### User Transactions

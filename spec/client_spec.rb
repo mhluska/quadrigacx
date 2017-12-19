@@ -166,13 +166,6 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
-    describe '#withdraw' do
-      it 'withdraws bitcoins' do
-        response = subject.withdraw(amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
-        expect(response).to eq('ok')
-      end
-    end
-
     describe '#open_orders' do
       let(:open_orders_cad) { subject.open_orders }
       let(:open_orders_usd) { subject.open_orders(book: :btc_usd) }
@@ -191,9 +184,17 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
-    describe '#wallet_address' do
-      it 'returns a wallet address' do
-        response = subject.wallet_address
+    describe '#bitcoin_withdraw' do
+      it 'withdraws bitcoins' do
+        response = subject.bitcoin_withdraw(amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
+        expect(response).to eq('ok')
+      end
+    end
+
+
+    describe '#bitcoin_deposit_address' do
+      it 'returns a bitcoin deposit address' do
+        response = subject.bitcoin_deposit_address
         expect(response.length).to be_between(26, 35)
       end
     end
