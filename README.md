@@ -133,6 +133,22 @@ Return a bitcoin deposit address.
 response = client.bitcoin_deposit_address
 ```
 
+#### Ether Withdraw
+
+Withdraw ether.
+
+```ruby
+response = client.ether_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+```
+
+#### Ether Deposit Address
+
+Return an ether deposit address.
+
+```ruby
+response = client.ether_deposit_address
+```
+
 #### User Transactions
 
 Return a list of user transactions.
