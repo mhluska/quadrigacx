@@ -69,6 +69,19 @@ module QuadrigaCX
       request(:post, '/bitcoin_deposit_address', params)
     end
 
+    # Withdraw ether.
+    #
+    # amount  – The amount to withdraw.
+    # address – The ether address we will send the amount to.
+    def ether_withdraw params={}
+      request(:post, '/ether_withdrawal', params)
+    end
+
+    # Return a ether deposit address.
+    def ether_deposit_address params={}
+      request(:post, '/ether_deposit_address', params)
+    end
+
     # Return a list of user transactions.
     #
     # offset - optional, skip that many transactions before beginning to return results. Default: 0.

@@ -198,6 +198,20 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
+    describe '#ether_withdraw' do
+      it 'withdraws ether' do
+        response = subject.ether_withdraw(amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
+        expect(response).to eq('ok')
+      end
+    end
+
+    describe '#ether_deposit_address' do
+      it 'returns an ether deposit address' do
+        response = subject.ether_deposit_address
+        expect(response.length).to be_between(26, 35)
+      end
+    end
+
     describe '#user_transactions' do
       let(:user_transactions_cad) { subject.user_transactions }
       let(:user_transactions_usd) { subject.user_transactions(order_book: :btc_usd) }
