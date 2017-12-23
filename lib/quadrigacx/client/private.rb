@@ -45,7 +45,7 @@ module QuadrigaCX
     # Cancel an order.
     #
     # id – a 64 characters long hexadecimal string taken from the list of orders.
-    def cancel params={}
+    def cancel_order params={}
       request(:post, '/cancel_order', params)
     end
 
