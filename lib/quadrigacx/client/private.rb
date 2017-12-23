@@ -64,7 +64,6 @@ module QuadrigaCX
       request(:post, '/bitcoin_withdrawal', params)
     end
 
-
     # Return a bitcoin deposit address.
     def bitcoin_deposit_address params={}
       request(:post, '/bitcoin_deposit_address', params)
@@ -81,6 +80,19 @@ module QuadrigaCX
     # Return a ether deposit address.
     def ether_deposit_address params={}
       request(:post, '/ether_deposit_address', params)
+    end
+
+    # Withdraw litecoin.
+    #
+    # amount  – The amount to withdraw.
+    # address – The litecoin address we will send the amount to.
+    def litecoin_withdraw params={}
+      request(:post, '/litecoin_withdrawal', params)
+    end
+
+    # Return a litecoin deposit address.
+    def litecoin_deposit_address params={}
+      request(:post, '/litecoin_deposit_address', params)
     end
 
     # Return a list of user transactions.

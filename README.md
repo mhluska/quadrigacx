@@ -149,6 +149,22 @@ Return an ether deposit address.
 response = client.ether_deposit_address
 ```
 
+#### Litecoin Withdraw
+
+Withdraw litecoins.
+
+```ruby
+response = client.litecoin_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+```
+
+#### Litecoin Deposit Address
+
+Return a litecoin deposit address.
+
+```ruby
+response = client.litecoin_deposit_address
+```
+
 #### User Transactions
 
 Return a list of user transactions.
