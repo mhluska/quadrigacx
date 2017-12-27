@@ -56,44 +56,26 @@ module QuadrigaCX
       request(:post, '/open_orders', params)
     end
 
-    # Withdraw bitcoins.
+    # Withdrawal of the specified coin type.
     #
-    # amount  – The amount to withdraw.
-    # address – The bitcoin address we will send the amount to.
-    def bitcoin_withdraw params={}
-      request(:post, '/bitcoin_withdrawal', params)
-    end
-
-    # Return a bitcoin deposit address.
-    def bitcoin_deposit_address params={}
-      request(:post, '/bitcoin_deposit_address', params)
-    end
-
-    # Withdraw ether.
-    #
-    # amount  – The amount to withdraw.
-    # address – The ether address we will send the amount to.
-    def ether_withdraw params={}
-      request(:post, '/ether_withdrawal', params)
-    end
-
-    # Return a ether deposit address.
-    def ether_deposit_address params={}
-      request(:post, '/ether_deposit_address', params)
-    end
-
-    # Withdraw litecoin.
-    #
+    # coin    – The coin type
     # amount  – The amount to withdraw.
     # address – The litecoin address we will send the amount to.
-    def litecoin_withdraw params={}
-      request(:post, '/litecoin_withdrawal', params)
+    def withdraw coin, params={}
+      raise ConfigurationError.new('No coin type specified') unless coin
+      raise ConfigurationError.new('Invalid coin type specified') unless Coin.valid?(coin)
+      request(:post, "/#{coin}_withdrawal", params)
     end
 
-    # Return a litecoin deposit address.
-    def litecoin_deposit_address params={}
-      request(:post, '/litecoin_deposit_address', params)
+    # Return a deposit address for specific coin type.
+    #
+    # coin – The coin type
+    def deposit_address coin, params={}
+      raise ConfigurationError.new('No coin type specified') unless coin
+      raise ConfigurationError.new('Invalid coin type specified') unless Coin.valid?(coin)
+      request(:post, "/#{coin}_deposit_address", params)
     end
+
 
     # Return a list of user transactions.
     #
