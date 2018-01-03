@@ -60,7 +60,7 @@ module QuadrigaCX
     #
     # coin    – The coin type
     # amount  – The amount to withdraw.
-    # address – The litecoin address we will send the amount to.
+    # address – The coin type's address we will send the amount to.
     def withdraw coin, params={}
       raise ConfigurationError.new('No coin type specified') unless coin
       raise ConfigurationError.new('Invalid coin type specified') unless Coin.valid?(coin)
