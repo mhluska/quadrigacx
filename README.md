@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/quadrigacx.svg)](https://badge.fury.io/rb/quadrigacx)
+
 # Quadrigacx
 
 Ruby wrapper for the QuadrigaCX API.
