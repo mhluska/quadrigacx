@@ -119,52 +119,20 @@ Return a JSON list of open orders.
 response = client.open_orders
 ```
 
-#### Withdraw Bitcoins
+#### Withdraw Coins
 
-Withdraw bitcoins.
+Withdraw coins (i.e., bitcoin).
 
 ```ruby
-response = client.bitcoin_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+response = client.withdraw(QuadrigaCX::Coin::BITCOIN, amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
 ```
 
-#### Bitcoin Deposit Address
+#### Deposit Address
 
-Return a bitcoin deposit address.
-
-```ruby
-response = client.bitcoin_deposit_address
-```
-
-#### Ether Withdraw
-
-Withdraw ether.
+Return a deposit address (i.e., bitcoin).
 
 ```ruby
-response = client.ether_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
-```
-
-#### Ether Deposit Address
-
-Return an ether deposit address.
-
-```ruby
-response = client.ether_deposit_address
-```
-
-#### Litecoin Withdraw
-
-Withdraw litecoins.
-
-```ruby
-response = client.litecoin_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
-```
-
-#### Litecoin Deposit Address
-
-Return a litecoin deposit address.
-
-```ruby
-response = client.litecoin_deposit_address
+response = client.deposit_address(QuadrigaCX::Coin::BITCOIN)
 ```
 
 #### User Transactions

@@ -184,46 +184,57 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
-    describe '#bitcoin_withdraw' do
-      it 'withdraws bitcoins' do
-        response = subject.bitcoin_withdraw(amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
-        expect(response).to eq('ok')
+    describe '#withdraw' do
+      context 'valid coin type' do
+        it 'success in withdrawal' do
+          coin = QuadrigaCX::Coin::BITCOIN
+          response = subject.withdraw(coin, amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
+          expect(response).to eq('ok')
+        end
+      end
+
+      context 'no coin type' do
+        it 'failure in withdrawal' do
+          expect do
+            subject.withdraw(nil, amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
+          end.to raise_error(QuadrigaCX::ConfigurationError)
+        end
+      end
+
+      context 'invalid coin type' do
+        it 'failure in withdrawal' do
+          coin = "DummyCoin"
+          expect do
+            subject.withdraw(coin, amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
+          end.to raise_error(QuadrigaCX::ConfigurationError)
+        end
       end
     end
 
-
-    describe '#bitcoin_deposit_address' do
-      it 'returns a bitcoin deposit address' do
-        response = subject.bitcoin_deposit_address
-        expect(response.length).to be_between(26, 35)
+    describe '#deposit_address' do
+      context 'valid coin type' do
+        it 'success in retrieving deposit address for valid coin type' do
+          coin = QuadrigaCX::Coin::BITCOIN
+          response = subject.deposit_address(coin)
+          expect(response.length).to be_between(26, 35)
+        end
       end
-    end
 
-    describe '#ether_withdraw' do
-      it 'withdraws ether' do
-        response = subject.ether_withdraw(amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
-        expect(response).to eq('ok')
+      context 'invalid coin type' do
+        it 'failure in retrieving deposit address' do
+          expect do
+            subject.deposit_address(nil)
+          end.to raise_error(QuadrigaCX::ConfigurationError)
+        end
       end
-    end
 
-    describe '#ether_deposit_address' do
-      it 'returns an ether deposit address' do
-        response = subject.ether_deposit_address
-        expect(response.length).to be_between(26, 35)
-      end
-    end
-
-    describe '#litecoin_withdraw' do
-      it 'withdraws litecoins' do
-        response = subject.litecoin_withdraw(amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
-        expect(response).to eq('ok')
-      end
-    end
-
-    describe '#litecoin_deposit_address' do
-      it 'returns a litecoin deposit address' do
-        response = subject.litecoin_deposit_address
-        expect(response.length).to be_between(26, 35)
+      context 'invalid coin type' do
+        it 'failure in retrieving deposit address' do
+          coin = "DummyCoin"
+          expect do
+            subject.deposit_address(coin)
+          end.to raise_error(QuadrigaCX::ConfigurationError)
+        end
       end
     end
 
