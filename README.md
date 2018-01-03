@@ -122,7 +122,7 @@ response = client.open_orders
 Withdraw coins (i.e., bitcoin).
 
 ```ruby
-response = client.withdraw(QuadrigaCX::BITCOIN, amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+response = client.withdraw(QuadrigaCX::Coin::BITCOIN, amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
 ```
 
 #### Deposit Address
@@ -130,7 +130,7 @@ response = client.withdraw(QuadrigaCX::BITCOIN, amount: 1, address: '1FAs1ywa3pq
 Return a deposit address (i.e., bitcoin).
 
 ```ruby
-response = client.deposit_address(QuadrigaCX::BITCOIN)
+response = client.deposit_address(QuadrigaCX::Coin::BITCOIN)
 ```
 
 #### User Transactions
