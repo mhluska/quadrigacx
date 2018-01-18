@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/quadrigacx.svg)](https://badge.fury.io/rb/quadrigacx)
+[![Build Status](https://travis-ci.org/mhluska/quadrigacx.svg?branch=master)](https://travis-ci.org/mhluska/quadrigacx)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f0ec6c87254b1cfafe46/maintainability)](https://codeclimate.com/github/mhluska/quadrigacx/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f0ec6c87254b1cfafe46/test_coverage)](https://codeclimate.com/github/mhluska/quadrigacx/test_coverage)
 
