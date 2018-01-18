@@ -1,6 +1,8 @@
 module QuadrigaCX
   module Coin
     BITCOIN = 'bitcoin'
+    BITCOIN_CASH = 'bitcoincash'
+    BITCOIN_GOLD = 'bitcoingold'
     LITECOIN = 'litecoin'
     ETHER = 'ether'
 
@@ -12,6 +14,8 @@ module QuadrigaCX
 
     ALL_COINS = [
       BITCOIN,
+      BITCOIN_CASH,
+      BITCOIN_GOLD,
       LITECOIN,
       ETHER
     ]
