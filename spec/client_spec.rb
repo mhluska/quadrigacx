@@ -188,7 +188,6 @@ describe QuadrigaCX::Client, :vcr do
       let(:lookup_order) { subject.lookup_order(id: '1na3tujn948erx1xlbfu8yw93f8y41vgja5if6zdegvwk8pcked34l48sh1or189') }
 
       it 'looks up an order' do
-        puts lookup_order.first
         expect(lookup_order.first.amount).to_not be_nil
         expect(lookup_order.first.book).to_not be_nil
         expect(lookup_order.first.created).to_not be_nil
