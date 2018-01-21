@@ -122,6 +122,14 @@ Return a JSON list of open orders.
 response = client.open_orders
 ```
 
+#### Lookup Order
+
+Returns a JSON list of details about 1 or more orders.
+
+```ruby
+response = client.lookup_order(order.id)
+```
+
 #### Withdraw Coins
 
 Withdraw coins (i.e., bitcoin).
