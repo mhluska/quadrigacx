@@ -58,7 +58,7 @@ module QuadrigaCX
 
     # Returns JSON list of details about 1 or more orders.
     #
-    # id – a single or array of 64 characters long hexadecimal string taken from the list of orders
+    # id – a single or array of 64 characters long hexadecimal string taken from the list of orders.
     def lookup_order params={}
       request(:post, '/lookup_order', params)
     end
