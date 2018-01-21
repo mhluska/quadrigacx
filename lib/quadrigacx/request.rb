@@ -24,6 +24,8 @@ module QuadrigaCX
 
     def fix_json response
       # This handles all responses that cannot be parsed as JSON
+      # Usually such responses are a single String of the form "..."; otherwise,
+      # the body is returned as a String
       response_body = response.body
       return true  if response_body.strip == '"true"'
       return false if response_body.strip == '"false"'
