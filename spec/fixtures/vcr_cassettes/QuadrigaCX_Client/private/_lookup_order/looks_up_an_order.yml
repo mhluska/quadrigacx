@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.quadrigacx.com/v2/lookup_order
+    body:
+      encoding: UTF-8
+      string: '{"id":"1na3tujn948erx1xlbfu8yw93f8y41vgja5if6zdegvwk8pcked34l48sh1or189","key":"0000000000","nonce":"1516498144541","signature":"0000000000000000000000000000000000000000000000000000000000000000"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (darwin15.6.0 x86_64) ruby/2.3.1p112
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '195'
+      Host:
+      - api.quadrigacx.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Jan 2018 01:29:05 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '179'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d14a9326a9d2dd89098e08c9a00f3ed931516498144; expires=Mon, 21-Jan-19
+        01:29:04 GMT; path=/; domain=.quadrigacx.com; HttpOnly
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 3e06801d1f475296-MIA
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA22OSQ7CIBiFr2JY24a/hQpcxRhDgdYOtoRCB413F1y7fN/L
+        G65vJJ9zmDwSCOcYUwwEMDqjep6HyGqv7krqCJQz0hsdWYGBZRiyAp/gIigV
+        v0CXLJhk6UM/ccKM22Ef6yawY+Nlww4Ca9tL2jXVS5t23QZm1WB0SUbClgfM
+        DhiPPdZ1yqQqyinJeUKLlz4saTkKf9hkp8lg9f9LlSAMfW5ffJhrC90AAAA=
+    http_version: 
+  recorded_at: Sun, 21 Jan 2018 01:29:05 GMT
+recorded_with: VCR 2.9.3

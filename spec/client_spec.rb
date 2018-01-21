@@ -184,6 +184,22 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
+    describe '#lookup_order' do
+      let(:lookup_order) { subject.lookup_order(id: '1na3tujn948erx1xlbfu8yw93f8y41vgja5if6zdegvwk8pcked34l48sh1or189') }
+
+      it 'looks up an order' do
+        puts lookup_order.first
+        expect(lookup_order.first.amount).to_not be_nil
+        expect(lookup_order.first.book).to_not be_nil
+        expect(lookup_order.first.created).to_not be_nil
+        expect(lookup_order.first.id).to_not be_nil
+        expect(lookup_order.first.price).to_not be_nil
+        expect(lookup_order.first.status).to_not be_nil
+        expect(lookup_order.first.type).to_not be_nil
+        expect(lookup_order.first.updated).to_not be_nil
+      end
+    end
+
     describe '#withdraw' do
       context 'valid coin type' do
         it 'success in withdrawal' do
