@@ -26,7 +26,7 @@ module QuadrigaCX
       # The `/cancel_order` route returns `"true"` instead of valid JSON.
       return true  if response.strip == '"true"'
       return false if response.strip == '"false"'
-      response[/"(.*)"/, 1] || response
+      response.to_s[/"(.*)"/, 1] || response
     end
 
     def hmac_request http_method, path, body={}

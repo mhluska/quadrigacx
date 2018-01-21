@@ -217,6 +217,7 @@ describe QuadrigaCX::Client, :vcr do
           coin = QuadrigaCX::Coin::BITCOIN
           response = subject.deposit_address(coin)
           expect(response.length).to be_between(26, 35)
+          expect(response.class).to eq(String)
         end
       end
 
