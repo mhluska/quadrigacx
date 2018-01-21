@@ -23,10 +23,13 @@ module QuadrigaCX
     private
 
     def fix_json response
-      # The `/cancel_order` route returns `"true"` instead of valid JSON.
-      return true  if response.strip == '"true"'
-      return false if response.strip == '"false"'
-      response[/"(.*)"/, 1] || response
+      # This handles all responses that cannot be parsed as JSON
+      # Usually such responses are a single String of the form "..."; otherwise,
+      # the body is returned as a String
+      response_body = response.body
+      return true  if response_body.strip == '"true"'
+      return false if response_body.strip == '"false"'
+      response_body[/"(.*)"/, 1] || response_body
     end
 
     def hmac_request http_method, path, body={}
