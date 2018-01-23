@@ -111,7 +111,7 @@ order = client.market_sell(amount: 0.01)
 Cancel an order.
 
 ```ruby
-client.cancel_order(order.id)
+client.cancel_order(id: order.id)
 ```
 
 #### Open Orders
@@ -127,7 +127,7 @@ response = client.open_orders
 Returns a JSON list of details about 1 or more orders.
 
 ```ruby
-response = client.lookup_order(order.id)
+response = client.lookup_order(id: order.id)
 ```
 
 #### Withdraw Coins
