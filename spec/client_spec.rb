@@ -37,7 +37,7 @@ describe QuadrigaCX::Client, :vcr do
 
       context 'when using the group option' do
         let!(:order) { safe_limit_buy }
-        after { subject.cancel_order(id: order.id) }
+        after { subject.cancel_order(order.id) }
 
         it 'does not group same price orders' do
           ungrouped_bids = subject.order_book(group: 0).bids
@@ -161,7 +161,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:order) { safe_limit_buy }
 
       it 'cancels an order' do
-        response = subject.cancel_order(id: order.id)
+        response = subject.cancel_order(order.id)
         expect(response).to be true
       end
     end
@@ -171,7 +171,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:open_orders_usd) { subject.open_orders(book: :btc_usd) }
       let!(:orders) { [safe_limit_buy, safe_limit_buy(book: :btc_usd)] }
 
-      after { orders.each { |order| subject.cancel_order(id: order.id) }}
+      after { orders.each { |order| subject.cancel_order(order.id) }}
 
       it 'lists open orders' do
         expect(open_orders_cad.first.datetime).not_to be_nil
@@ -185,7 +185,7 @@ describe QuadrigaCX::Client, :vcr do
     end
 
     describe '#lookup_order' do
-      let(:lookup_order) { subject.lookup_order(id: '1na3tujn948erx1xlbfu8yw93f8y41vgja5if6zdegvwk8pcked34l48sh1or189') }
+      let(:lookup_order) { subject.lookup_order('1na3tujn948erx1xlbfu8yw93f8y41vgja5if6zdegvwk8pcked34l48sh1or189') }
 
       it 'looks up an order' do
         expect(lookup_order.first.amount).to_not be_nil

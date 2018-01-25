@@ -45,8 +45,8 @@ module QuadrigaCX
     # Cancel an order.
     #
     # id – a 64 characters long hexadecimal string taken from the list of orders.
-    def cancel_order params={}
-      request(:post, '/cancel_order', params)
+    def cancel_order order_id
+      request(:post, '/cancel_order', id: order_id)
     end
 
     # Return a JSON list of open orders.
@@ -59,8 +59,8 @@ module QuadrigaCX
     # Returns JSON list of details about 1 or more orders.
     #
     # id – a single or array of 64 characters long hexadecimal string taken from the list of orders.
-    def lookup_order params={}
-      request(:post, '/lookup_order', params)
+    def lookup_order order_id
+      request(:post, '/lookup_order', id: order_id)
     end
 
     # Withdrawal of the specified coin type.
