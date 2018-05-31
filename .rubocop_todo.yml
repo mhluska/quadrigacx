@@ -30,18 +30,6 @@ Style/AsciiComments:
   Exclude:
     - 'lib/quadrigacx/client/private.rb'
 
-# Offense count: 23
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: require_parentheses, require_no_parentheses, require_no_parentheses_except_multiline
-Style/MethodDefParentheses:
-  Exclude:
-    - 'lib/quadrigacx/client.rb'
-    - 'lib/quadrigacx/client/private.rb'
-    - 'lib/quadrigacx/client/public.rb'
-    - 'lib/quadrigacx/request.rb'
-    - 'spec/client_spec.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Style/MutableConstant:

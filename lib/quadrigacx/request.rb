@@ -13,7 +13,7 @@ module QuadrigaCX
 
     protected
 
-    def request *args
+    def request(*args)
       response = hmac_request(*args)
       response = JSON.parse(response, object_class: OpenStruct) rescue (return fix_json(response))
 
@@ -22,14 +22,14 @@ module QuadrigaCX
 
     private
 
-    def fix_json response
+    def fix_json(response)
       # The `/cancel_order` route returns `"true"` instead of valid JSON.
       return true  if response.strip == '"true"'
       return false if response.strip == '"false"'
       response[/"(.*)"/, 1] || response
     end
 
-    def hmac_request http_method, path, body = {}
+    def hmac_request(http_method, path, body = {})
       payload = {}
       url     = "#{API_URL}#{path}"
 
@@ -64,7 +64,7 @@ module QuadrigaCX
       )
     end
 
-    def check_error responses
+    def check_error(responses)
       [responses].flatten.each do |response|
         next unless response.error
 

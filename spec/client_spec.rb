@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe QuadrigaCX::Client, :vcr do
-  def safe_limit_buy book: :btc_cad
+  def safe_limit_buy(book: :btc_cad)
     worst_price = subject.order_book.bids.last[0]
     subject.limit_buy(price: worst_price, amount: 1, book: book)
   end
 
-  def safe_limit_sell book: :btc_cad
+  def safe_limit_sell(book: :btc_cad)
     worst_price = subject.order_book.asks.last[0]
     subject.limit_sell(price: worst_price, amount: 0.01, book: book)
   end

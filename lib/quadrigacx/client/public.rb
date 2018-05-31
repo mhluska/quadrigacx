@@ -3,7 +3,7 @@ module QuadrigaCX
     # Return trading information.
     #
     # book - optional, book to return orders for. Default btc_cad.
-    def ticker params = {}
+    def ticker(params = {})
       request(:get, '/ticker', params)
     end
 
@@ -11,7 +11,7 @@ module QuadrigaCX
     #
     # book  - optional, book to return orders for. Default btc_cad.
     # group - optional, group orders with the same price (0 - false; 1 - true). Default: 1.
-    def order_book params = {}
+    def order_book(params = {})
       request(:get, '/order_book', params)
     end
 
@@ -19,7 +19,7 @@ module QuadrigaCX
     #
     # book - optional, book to return orders for (default btc_cad).
     # time - optional, time frame for transaction export ("minute" - 1 minute, "hour" - 1 hour). Default: hour.
-    def transactions params = {}
+    def transactions(params = {})
       request(:get, '/transactions', params)
     end
   end
