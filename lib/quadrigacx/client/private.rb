@@ -11,7 +11,7 @@ module QuadrigaCX
     # amount - amount of major currency.
     # price  - price to buy at.
     # book   - optional, if not specified, will default to btc_cad.
-    def limit_buy params={}
+    def limit_buy params = {}
       raise ConfigurationError.new('No price specified for limit buy') unless params[:price]
       request(:post, '/buy', params)
     end
@@ -21,7 +21,7 @@ module QuadrigaCX
     # amount - amount of major currency.
     # price  - price to sell at.
     # book   - optional, if not specified, will default to btc_cad.
-    def limit_sell params={}
+    def limit_sell params = {}
       raise ConfigurationError.new('No price specified for limit sell') unless params[:price]
       request(:post, '/sell', params)
     end
@@ -30,7 +30,7 @@ module QuadrigaCX
     #
     # amount - amount of major currency to spend.
     # book   - optional, if not specified, will default to btc_cad.
-    def market_buy params={}
+    def market_buy params = {}
       request(:post, '/buy', params)
     end
 
@@ -38,21 +38,21 @@ module QuadrigaCX
     #
     # amount - amount of major currency to sell.
     # book   - optional, if not specified, will default to btc_cad.
-    def market_sell params={}
+    def market_sell params = {}
       request(:post, '/sell', params)
     end
 
     # Cancel an order.
     #
     # id – a 64 characters long hexadecimal string taken from the list of orders.
-    def cancel_order params={}
+    def cancel_order params = {}
       request(:post, '/cancel_order', params)
     end
 
     # Return a JSON list of open orders.
     #
     # book - optional, if not specified, will default to btc_cad.
-    def open_orders params={}
+    def open_orders params = {}
       request(:post, '/open_orders', params)
     end
 
@@ -60,12 +60,12 @@ module QuadrigaCX
     #
     # amount  – The amount to withdraw.
     # address – The bitcoin address we will send the amount to.
-    def bitcoin_withdraw params={}
+    def bitcoin_withdraw params = {}
       request(:post, '/bitcoin_withdrawal', params)
     end
 
     # Return a bitcoin deposit address.
-    def bitcoin_deposit_address params={}
+    def bitcoin_deposit_address params = {}
       request(:post, '/bitcoin_deposit_address', params)
     end
 
@@ -73,12 +73,12 @@ module QuadrigaCX
     #
     # amount  – The amount to withdraw.
     # address – The ether address we will send the amount to.
-    def ether_withdraw params={}
+    def ether_withdraw params = {}
       request(:post, '/ether_withdrawal', params)
     end
 
     # Return a ether deposit address.
-    def ether_deposit_address params={}
+    def ether_deposit_address params = {}
       request(:post, '/ether_deposit_address', params)
     end
 
@@ -86,12 +86,12 @@ module QuadrigaCX
     #
     # amount  – The amount to withdraw.
     # address – The litecoin address we will send the amount to.
-    def litecoin_withdraw params={}
+    def litecoin_withdraw params = {}
       request(:post, '/litecoin_withdrawal', params)
     end
 
     # Return a litecoin deposit address.
-    def litecoin_deposit_address params={}
+    def litecoin_deposit_address params = {}
       request(:post, '/litecoin_deposit_address', params)
     end
 
@@ -101,7 +101,7 @@ module QuadrigaCX
     # limit  - optional, limit result to that many transactions. Default: 50.
     # sort   - optional, sorting by date and time (asc - ascending; desc - descending). Default: desc.
     # book   - optional, if not specified, will default to btc_cad.
-    def user_transactions params={}
+    def user_transactions params = {}
       request(:post, '/user_transactions', params).each { |t| t.id = t.id.to_s }
     end
   end

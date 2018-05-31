@@ -14,7 +14,7 @@ module QuadrigaCX
     # options[:api_key]
     # options[:api_secret]
     #
-    def initialize options={}
+    def initialize options = {}
       unless options.kind_of?(Hash)
         raise ArgumentError, 'Options hash required'
       end

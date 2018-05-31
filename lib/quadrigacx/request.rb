@@ -29,7 +29,7 @@ module QuadrigaCX
       response[/"(.*)"/, 1] || response
     end
 
-    def hmac_request http_method, path, body={}
+    def hmac_request http_method, path, body = {}
       payload = {}
       url     = "#{API_URL}#{path}"
 
