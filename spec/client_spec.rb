@@ -171,7 +171,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:open_orders_usd) { subject.open_orders(book: :btc_usd) }
       let!(:orders) { [safe_limit_buy, safe_limit_buy(book: :btc_usd)] }
 
-      after { orders.each { |order| subject.cancel_order(id: order.id) }}
+      after { orders.each { |order| subject.cancel_order(id: order.id) } }
 
       it 'lists open orders' do
         expect(open_orders_cad.first.datetime).not_to be_nil
