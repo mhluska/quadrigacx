@@ -9,6 +9,9 @@ Style/Documentation:
 Metrics/CyclomaticComplexity:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
