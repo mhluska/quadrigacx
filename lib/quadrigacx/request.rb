@@ -68,7 +68,6 @@ module QuadrigaCX
 
     def check_error responses
       [responses].flatten.each do |response|
-
         next unless response.error
 
         errorClass =
