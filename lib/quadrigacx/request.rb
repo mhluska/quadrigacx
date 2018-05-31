@@ -47,11 +47,9 @@ module QuadrigaCX
         digest    = OpenSSL::Digest.new('sha256')
         signature = OpenSSL::HMAC.hexdigest(digest, api_secret, data)
 
-        payload = body.merge({
-          key: api_key,
-          nonce: nonce,
-          signature: signature,
-        })
+        payload = body.merge(key: api_key,
+                             nonce: nonce,
+                             signature: signature)
       end
 
       RestClient::Request.execute(
