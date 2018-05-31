@@ -13,15 +13,6 @@
 Layout/IndentHash:
   EnforcedStyle: consistent
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
-  Exclude:
-    - 'Rakefile'
-    - 'lib/quadrigacx/client/public.rb'
-
 # Offense count: 1
 Lint/RescueWithoutErrorClass:
   Exclude:

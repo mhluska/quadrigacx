@@ -24,4 +24,3 @@ module QuadrigaCX
     end
   end
 end
-
