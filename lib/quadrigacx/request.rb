@@ -9,7 +9,7 @@ require 'quadrigacx/error'
 
 module QuadrigaCX
   module Request
-    API_URL = "https://api.quadrigacx.com/v2"
+    API_URL = "https://api.quadrigacx.com/v2".freeze
 
     protected
 

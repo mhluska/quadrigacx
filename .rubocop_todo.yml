@@ -30,13 +30,6 @@ Style/AsciiComments:
   Exclude:
     - 'lib/quadrigacx/client/private.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'lib/quadrigacx/request.rb'
-    - 'lib/quadrigacx/version.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
