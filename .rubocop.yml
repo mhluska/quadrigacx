@@ -6,6 +6,9 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
