@@ -191,7 +191,6 @@ describe QuadrigaCX::Client, :vcr do
       end
     end
 
-
     describe '#bitcoin_deposit_address' do
       it 'returns a bitcoin deposit address' do
         response = subject.bitcoin_deposit_address
