@@ -30,13 +30,6 @@ Style/AsciiComments:
   Exclude:
     - 'lib/quadrigacx/client/private.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: MaxLineLength.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'lib/quadrigacx/client.rb'
-
 # Offense count: 23
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
