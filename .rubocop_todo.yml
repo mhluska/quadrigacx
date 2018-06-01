@@ -38,9 +38,3 @@ Style/RaiseArgs:
   Exclude:
     - 'lib/quadrigacx/client/private.rb'
     - 'lib/quadrigacx/request.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RescueModifier:
-  Exclude:
-    - 'lib/quadrigacx/request.rb'
