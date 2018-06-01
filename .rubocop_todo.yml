@@ -29,12 +29,3 @@ Naming/VariableName:
 Style/AsciiComments:
   Exclude:
     - 'lib/quadrigacx/client/private.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: compact, exploded
-Style/RaiseArgs:
-  Exclude:
-    - 'lib/quadrigacx/client/private.rb'
-    - 'lib/quadrigacx/request.rb'

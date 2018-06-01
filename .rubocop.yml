@@ -20,3 +20,6 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
