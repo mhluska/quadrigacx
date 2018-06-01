@@ -12,8 +12,3 @@
 # SupportedStyles: special_inside_parentheses, consistent, align_braces
 Layout/IndentHash:
   EnforcedStyle: consistent
-
-# Offense count: 7
-Style/AsciiComments:
-  Exclude:
-    - 'lib/quadrigacx/client/private.rb'

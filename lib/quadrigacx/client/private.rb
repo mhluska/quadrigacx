@@ -44,7 +44,7 @@ module QuadrigaCX
 
     # Cancel an order.
     #
-    # id – a 64 characters long hexadecimal string taken from the list of orders.
+    # id - a 64 characters long hexadecimal string taken from the list of orders.
     def cancel_order(params = {})
       request(:post, '/cancel_order', params)
     end
@@ -58,8 +58,8 @@ module QuadrigaCX
 
     # Withdraw bitcoins.
     #
-    # amount  – The amount to withdraw.
-    # address – The bitcoin address we will send the amount to.
+    # amount  - The amount to withdraw.
+    # address - The bitcoin address we will send the amount to.
     def bitcoin_withdraw(params = {})
       request(:post, '/bitcoin_withdrawal', params)
     end
@@ -71,8 +71,8 @@ module QuadrigaCX
 
     # Withdraw ether.
     #
-    # amount  – The amount to withdraw.
-    # address – The ether address we will send the amount to.
+    # amount  - The amount to withdraw.
+    # address - The ether address we will send the amount to.
     def ether_withdraw(params = {})
       request(:post, '/ether_withdrawal', params)
     end
@@ -84,8 +84,8 @@ module QuadrigaCX
 
     # Withdraw litecoin.
     #
-    # amount  – The amount to withdraw.
-    # address – The litecoin address we will send the amount to.
+    # amount  - The amount to withdraw.
+    # address - The litecoin address we will send the amount to.
     def litecoin_withdraw(params = {})
       request(:post, '/litecoin_withdrawal', params)
     end
