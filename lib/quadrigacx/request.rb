@@ -60,7 +60,7 @@ module QuadrigaCX
         headers: {
           content_type: :json,
           accept: :json,
-        },
+        }
       )
     end
 
