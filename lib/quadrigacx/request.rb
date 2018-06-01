@@ -17,8 +17,8 @@ module QuadrigaCX
       response = hmac_request(*args)
       response = begin
                    JSON.parse(response, object_class: OpenStruct)
-                 rescue
-                   (return fix_json(response))
+                 rescue JSON::ParserError
+                   return fix_json(response)
                  end
 
       check_error(response)
