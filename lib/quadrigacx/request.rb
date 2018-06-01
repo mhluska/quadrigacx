@@ -59,7 +59,7 @@ module QuadrigaCX
         verify_ssl: false,
         headers: {
           content_type: :json,
-          accept: :json,
+          accept: :json
         }
       )
     end

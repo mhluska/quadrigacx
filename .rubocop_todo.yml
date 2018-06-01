@@ -44,11 +44,3 @@ Style/RaiseArgs:
 Style/RescueModifier:
   Exclude:
     - 'lib/quadrigacx/request.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInLiteral:
-  Exclude:
-    - 'lib/quadrigacx/request.rb'
