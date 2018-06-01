@@ -1,3 +1,8 @@
+[![Gem Version](https://badge.fury.io/rb/quadrigacx.svg)](https://badge.fury.io/rb/quadrigacx)
+[![Build Status](https://travis-ci.org/mhluska/quadrigacx.svg?branch=master)](https://travis-ci.org/mhluska/quadrigacx)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f0ec6c87254b1cfafe46/maintainability)](https://codeclimate.com/github/mhluska/quadrigacx/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f0ec6c87254b1cfafe46/test_coverage)](https://codeclimate.com/github/mhluska/quadrigacx/test_coverage)
+
 # Quadrigacx
 
 Ruby wrapper for the QuadrigaCX API.
@@ -106,7 +111,7 @@ order = client.market_sell(amount: 0.01)
 Cancel an order.
 
 ```ruby
-client.cancel_order(order.id)
+client.cancel_order(id: order.id)
 ```
 
 #### Open Orders
@@ -117,52 +122,28 @@ Return a JSON list of open orders.
 response = client.open_orders
 ```
 
-#### Withdraw Bitcoins
+#### Lookup Order
 
-Withdraw bitcoins.
+Returns a JSON list of details about 1 or more orders.
 
 ```ruby
-response = client.bitcoin_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
+response = client.lookup_order(id: order.id)
 ```
 
-#### Bitcoin Deposit Address
+#### Withdraw Coins
 
-Return a bitcoin deposit address.
+Withdraw coins (i.e., bitcoin).
 
 ```ruby
-response = client.bitcoin_deposit_address
+response = client.withdraw(QuadrigaCX::Coin::BITCOIN, amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
 ```
 
-#### Ether Withdraw
+#### Deposit Address
 
-Withdraw ether.
-
-```ruby
-response = client.ether_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
-```
-
-#### Ether Deposit Address
-
-Return an ether deposit address.
+Return a deposit address (i.e., bitcoin).
 
 ```ruby
-response = client.ether_deposit_address
-```
-
-#### Litecoin Withdraw
-
-Withdraw litecoins.
-
-```ruby
-response = client.litecoin_withdraw(amount: 1, address: '1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX')
-```
-
-#### Litecoin Deposit Address
-
-Return a litecoin deposit address.
-
-```ruby
-response = client.litecoin_deposit_address
+response = client.deposit_address(QuadrigaCX::Coin::BITCOIN)
 ```
 
 #### User Transactions

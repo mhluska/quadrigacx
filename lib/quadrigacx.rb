@@ -2,6 +2,7 @@ module QuadrigaCX
   autoload :Error,   'quadrigacx/error'
   autoload :Request, 'quadrigacx/request'
   autoload :Client,  'quadrigacx/client'
+  autoload :Coin,    'quadrigacx/coin'
   autoload :Version, 'quadrigacx/version'
 
   class << self

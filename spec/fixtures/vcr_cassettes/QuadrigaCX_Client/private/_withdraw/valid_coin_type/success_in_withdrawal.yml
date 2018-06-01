@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.quadrigacx.com/v2/litecoin_withdrawal
+    uri: https://api.quadrigacx.com/v2/bitcoin_withdrawal
     body:
       encoding: UTF-8
       string: '{"amount":0.01,"address":"1FAs1ywa3pqS6S5mvypXjCtHAzwCkymNUX","key":"kOnVDjfPPh","nonce":"1438610385514","signature":"14d4e26eccbe2a54ae3e290a48b83d823c49f1f71d6656861fcd7f13abc36f4b"}'
@@ -52,3 +52,4 @@ http_interactions:
     http_version:
   recorded_at: Mon, 03 Aug 2015 13:59:45 GMT
 recorded_with: VCR 2.9.3
+
