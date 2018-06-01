@@ -72,7 +72,7 @@ module QuadrigaCX
       [responses].flatten.each do |response|
         next unless response.error
 
-        errorClass =
+        error_class =
           case response.error.code
           when 21  then ExceedsAvailableBalance
           when 22  then BelowMinimumOrderValue
@@ -85,7 +85,7 @@ module QuadrigaCX
         message += response.error.to_s if response.error
         message += response.errors.join(',') if response.errors
 
-        raise errorClass.new(message)
+        raise error_class.new(message)
       end
 
       responses

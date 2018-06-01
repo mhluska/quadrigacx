@@ -13,13 +13,6 @@
 Layout/IndentHash:
   EnforcedStyle: consistent
 
-# Offense count: 1
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: snake_case, camelCase
-Naming/VariableName:
-  Exclude:
-    - 'lib/quadrigacx/request.rb'
-
 # Offense count: 7
 Style/AsciiComments:
   Exclude:
