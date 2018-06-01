@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe QuadrigaCX::Client, :vcr do
-  def safe_limit_buy book: :btc_cad
+  def safe_limit_buy(book: :btc_cad)
     worst_price = subject.order_book.bids.last[0]
     subject.limit_buy(price: worst_price, amount: 1, book: book)
   end
 
-  def safe_limit_sell book: :btc_cad
+  def safe_limit_sell(book: :btc_cad)
     worst_price = subject.order_book.asks.last[0]
     subject.limit_sell(price: worst_price, amount: 0.01, book: book)
   end
@@ -171,7 +171,7 @@ describe QuadrigaCX::Client, :vcr do
       let(:open_orders_usd) { subject.open_orders(book: :btc_usd) }
       let!(:orders) { [safe_limit_buy, safe_limit_buy(book: :btc_usd)] }
 
-      after { orders.each { |order| subject.cancel_order(id: order.id) }}
+      after { orders.each { |order| subject.cancel_order(id: order.id) } }
 
       it 'lists open orders' do
         expect(open_orders_cad.first.datetime).not_to be_nil
@@ -218,7 +218,7 @@ describe QuadrigaCX::Client, :vcr do
 
       context 'invalid coin type' do
         it 'failure in withdrawal' do
-          coin = "DummyCoin"
+          coin = 'DummyCoin'
           expect do
             subject.withdraw(coin, amount: 0.01, address: '1DVLFma28jEgTCUjQ32FUYe12bRzvywAfr')
           end.to raise_error(QuadrigaCX::ConfigurationError)
@@ -246,7 +246,7 @@ describe QuadrigaCX::Client, :vcr do
 
       context 'invalid coin type' do
         it 'failure in retrieving deposit address' do
-          coin = "DummyCoin"
+          coin = 'DummyCoin'
           expect do
             subject.deposit_address(coin)
           end.to raise_error(QuadrigaCX::ConfigurationError)

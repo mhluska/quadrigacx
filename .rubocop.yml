@@ -1,0 +1,26 @@
+AllCops:
+  TargetRubyVersion: 2.0
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+
+Layout/IndentHash:
+  EnforcedStyle: special_inside_parentheses

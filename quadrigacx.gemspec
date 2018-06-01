@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'quadrigacx/version'
@@ -28,5 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr',         '~> 2.9'
   spec.add_development_dependency 'gem-release', '~> 0.7'
   spec.add_development_dependency 'bundler',     '~> 1.7'
+  spec.add_development_dependency 'rubocop',     '~> 0.50.0'
   spec.add_development_dependency 'rake',        '~> 10.0'
 end
