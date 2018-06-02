@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'byebug',      '~> 5.0'
   spec.add_development_dependency 'rspec',       '~> 3.1'
+  spec.add_development_dependency 'simplecov',   '~> 0.16'
   spec.add_development_dependency 'webmock',     '~> 3.2.0'
   spec.add_development_dependency 'vcr',         '~> 2.9'
   spec.add_development_dependency 'gem-release', '~> 0.7'
